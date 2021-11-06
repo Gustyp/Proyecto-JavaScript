@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;600;900&display=swap" rel="stylesheet">
+    <!-- Mi CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">    
+    <title>Billetera virtual - Registro</title>
+</head>
+<body class="registerBody">
+    <ul class="nav fixed-top justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-primary btn-sm m-2" href="login.html">¿Ya tienes cuenta? ¡Inicia sesión!</a>
+        </li>
+    </ul>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-center">
+                        <span>
+                            <img class="mt-4 mb-2" src="./assets/images/digital-wallet.png" alt="Billetera virtual">
+                        </span>
+                    </div>
+                    <h3 class="d-flex justify-content-center">Registro</h3>
+                </div>
+                <div class="card-body">
+                    <form id="register-form">
+                        <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input id="registerUser" type="text" class="form-control" placeholder="Usuario">
+                        </div>
+                        <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            <input id="registerPassword" type="password" class="form-control" placeholder="Contraseña">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        <input id="sameRegisterPassword" type="password" class="form-control" placeholder="Repita la contraseña">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        <input id="mail" type="mail" class="form-control" placeholder="E-mail">
+                    </div>
+                        <div class="row align-items-center remember">
+                            <input type="checkbox" id="checkAceptar">Acepto las bases y condiciones
+                        </div>
+                        <div class="d-flex justify-content-end pt-4">
+                            <input id="registerBtnSubmit" type="submit" value="Register" class="btn register_btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Iconos -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
