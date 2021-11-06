@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+html, body{
+    background-image: url('../assets/svg/background-login.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Roboto Slab', serif;
+    overflow-x: hidden;
+}
+
 a {
     text-decoration: none;
 }
