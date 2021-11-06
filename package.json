@@ -1,0 +1,22 @@
+{
+  "name": "proyecto-javascript",
+  "version": "1.0.0",
+  "description": "Mi proyecto JavaScript de CoderHouse",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gustyp/Proyecto-JavaScript.git"
+  },
+  "author": "Gustavo Carro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gustyp/Proyecto-JavaScript/issues"
+  },
+  "homepage": "https://github.com/Gustyp/Proyecto-JavaScript#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
