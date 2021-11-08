@@ -11279,12 +11279,11 @@ a {
   padding: 10rem 0 0 0;
 }
 .index-body .home .img-box img {
-  animation: from-right 1.5s ease;
+  animation: from-right 1.5s ease-in-out;
 }
 .index-body .home .display-2 {
   margin-bottom: 1rem;
   text-transform: capitalize;
-  font-family: "Montserrat", sans-serif;
 }
 .index-body .home .display-2--intro {
   display: inline-block;
