@@ -12,14 +12,23 @@
 </head>
 <body class="registerBody">
     <header>
-        <ul class="nav fixed-top justify-content-end">
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-primary btn-sm m-2" href="../index.html">Volver al inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn btn-outline-primary btn-sm m-2" href="login.html">¿Ya tienes cuenta? ¡Inicia sesión!</a>
-            </li>
-        </ul>
+        <nav class="navbar navbar-dark navbar-expand-sm navbar-secondary bg-secondary shadow fixed-top">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-primary btn-sm m-2" aria-current="page" href="login.html">¿Ya tienes una cuenta? ¡Inicia sesión!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-primary btn-sm m-2" href="../index.html">Volver al inicio</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <main class="container-fluid">
         <div class="d-flex justify-content-center h-100">
@@ -63,6 +72,6 @@
     </main>
     <!-- Iconos -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
