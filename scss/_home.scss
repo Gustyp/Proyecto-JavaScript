@@ -1,17 +1,17 @@
 .index-body{
-    background-image: url('../assets/svg/background-index.svg');
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-position: center;
-
     .nav-link{
         color: #ffff !important;
         background-color: $primary;
     }
 
     .home{
-        padding: 10rem 0 0 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: center;
+        color: black;
 
         .img-box img {
             animation: from-right 1.5s ease-in-out;
@@ -91,25 +91,6 @@
             }
         }
     }
-    // .download {
-    //     padding: 0 0 5rem 0;
-        
-    //     &__logo-box {
-    //         max-width: 100%;
-    //         margin-bottom: 2rem;
-    //         padding: 0.5rem;
-    //         text-align: center;
-    //         position: relative;
-            
-    //         img {
-    //             height: 100%;
-        
-    //             &:hover {
-    //                 filter: invert(30%);
-    //             }
-    //         }
-    //     }
-    // }
 }
 
 // Animación para aparecer desde la derecha
@@ -123,3 +104,4 @@
         transform: translateX(0px);
     }
 }
+

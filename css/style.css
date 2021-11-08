@@ -11264,19 +11264,18 @@ a {
   }
 }
 
-.index-body {
-  background-image: url("../assets/svg/background-index.svg");
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-}
 .index-body .nav-link {
   color: #ffff !important;
   background-color: #6600FF;
 }
 .index-body .home {
-  padding: 10rem 0 0 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
 .index-body .home .img-box img {
   animation: from-right 1.5s ease-in-out;
@@ -11364,6 +11363,12 @@ a {
     opacity: 1;
     transform: translateX(0px);
   }
+}
+footer {
+  position: relative;
+  margin-top: -25px;
+  font-size: 12px;
+  height: 25px;
 }
 
 /*# sourceMappingURL=style.css.map */

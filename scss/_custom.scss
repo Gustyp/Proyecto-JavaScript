@@ -7,11 +7,11 @@ $navbar-toggler-padding-y:     .25rem;
 $navbar-toggler-padding-x:     .75rem;
 $navbar-toggler-font-size:     1.25rem;
 $navbar-toggler-transition:    box-shadow .15s ease-in-out;
-$navbar-dark-color:                 rgba($primary, .55);
-$navbar-dark-hover-color:           rgba($primary, .55);
-$navbar-dark-active-color:          $primary;
-$navbar-dark-disabled-color:        $primary;
-$navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$primary}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+$navbar-dark-color:            rgba($primary, .55);
+$navbar-dark-hover-color:      rgba($primary, .55);
+$navbar-dark-active-color:     $primary;
+$navbar-dark-disabled-color:   $primary;
+$navbar-dark-toggler-icon-bg:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$primary}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
 $navbar-dark-toggler-border-color:  rgba($primary, .1);
 
 
