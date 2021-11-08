@@ -11129,6 +11129,7 @@ html, body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
+  font-size: 16px;
   font-family: "Roboto Slab", serif;
   overflow-x: hidden;
 }
@@ -11273,6 +11274,97 @@ a {
 .index-body .nav-link {
   color: #ffff !important;
   background-color: #6600FF;
+}
+.index-body .home {
+  padding: 10rem 0 0 0;
+}
+.index-body .home .img-box img {
+  animation: from-right 1.5s ease;
+}
+.index-body .home .display-2 {
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  font-family: "Montserrat", sans-serif;
+}
+.index-body .home .display-2--intro {
+  display: inline-block;
+  font-weight: 700;
+}
+.index-body .home .display-2--description {
+  font-size: 1rem;
+  display: block;
+  margin-top: 1.2rem;
+  text-transform: none;
+}
+@media (min-width: 992px) {
+  .index-body .home .display-2--description {
+    font-size: 1.4rem;
+    display: inline-block;
+  }
+}
+.index-body .home .btn-rounded {
+  position: relative;
+  padding: 0.93rem 3.3rem 0.93rem 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  border: 0.1rem solid rgba(255, 255, 255, 0.6);
+  background-color: white;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+@media (max-width: 575.98px) {
+  .index-body .home .btn-rounded {
+    display: none;
+  }
+}
+.index-body .home .btn-rounded span {
+  position: absolute;
+  background-color: #00CC99;
+  width: 2.5rem;
+  height: 2.5rem;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+.index-body .home .btn-rounded span img {
+  color: white;
+  font-size: 1rem;
+  line-height: 2.5rem;
+}
+.index-body .home .btn-rounded:hover {
+  color: white;
+}
+.index-body .home .btn-rounded:hover span {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.index-body .home .btn-rounded:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to right, rgba(0, 204, 153, 0.95), rgba(102, 0, 255, 0.95));
+  border-radius: 0 0 50% 50%;
+  transition: all 0.5s;
+}
+.index-body .home .btn-rounded:hover:before {
+  height: 180%;
+}
+
+@keyframes from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
