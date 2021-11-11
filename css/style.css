@@ -11125,8 +11125,7 @@ textarea.form-control-lg {
 }
 
 html, body {
-  background-image: url("../assets/svg/background-login.svg");
-  background-size: cover;
+  background-image: linear-gradient(to right bottom, #257389, #078496, #00959e, #00a6a2, #00b7a2, #00b9b2, #00bac0, #00bacc, #00a8ec, #0090ff, #006bff, #6600ff);
   background-repeat: no-repeat;
   height: 100%;
   font-size: 16px;
