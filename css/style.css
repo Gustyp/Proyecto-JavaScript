@@ -3705,12 +3705,12 @@ textarea.form-control-lg {
 }
 
 .dropdown-menu-dark {
-  color: #dee2e6;
-  background-color: #343a40;
+  color: #6600FF;
+  background-color: #00CC99;
   border-color: rgba(0, 0, 0, 0.15);
 }
 .dropdown-menu-dark .dropdown-item {
-  color: #dee2e6;
+  color: #6600FF;
 }
 .dropdown-menu-dark .dropdown-item:hover, .dropdown-menu-dark .dropdown-item:focus {
   color: #fff;
@@ -3727,7 +3727,7 @@ textarea.form-control-lg {
   border-color: rgba(0, 0, 0, 0.15);
 }
 .dropdown-menu-dark .dropdown-item-text {
-  color: #dee2e6;
+  color: #6600FF;
 }
 .dropdown-menu-dark .dropdown-header {
   color: #adb5bd;
@@ -11133,6 +11133,10 @@ html, body {
   overflow-x: hidden;
 }
 
+ul, li {
+  list-style-type: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -11142,55 +11146,98 @@ a {
   background-color: #6600FF;
 }
 
-.loginBody .container-fluid, .loginBody .container-sm, .loginBody .container-md, .loginBody .container-lg, .loginBody .container-xl, .loginBody .container-xxl {
+.border {
+  border: 2px solid red;
+}
+
+.home-body {
+  display: flex;
+}
+.home-body .sidebar-container {
+  min-height: 100vh;
+  width: 30vh;
+  border: 3px solid #00CC99;
+  background-color: #fff;
+}
+.home-body .sidebar-container .titulo-menu {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #6600FF;
+  letter-spacing: 0.5rem;
+}
+.home-body .links {
+  padding: 0;
+  margin: 20px 0;
+  margin-bottom: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  text-align: left;
+  vertical-align: text-bottom;
+  color: #666;
+  border: 0;
+  background-color: transparent;
+}
+.home-body .links:hover {
+  margin-left: -30px;
+  color: #00CC99;
+  padding-left: 40px;
+  border-left: 3px solid #00CC99;
+  background-color: rgba(0, 204, 153, 0.05);
+}
+
+.login-body .container-fluid, .login-body .container-sm, .login-body .container-md, .login-body .container-lg, .login-body .container-xl, .login-body .container-xxl {
   height: 100%;
   align-content: center;
   background-color: #ffffff10;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-.loginBody .card {
+.login-body .card {
   height: 410px;
   margin: auto;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.5);
   animation: float 6s infinite;
 }
-.loginBody .card-header h3, .loginBody .card-header .h3 {
+.login-body .card-header h3, .login-body .card-header .h3 {
   color: white;
 }
-.loginBody .input-group span {
+.login-body .input-group span {
   width: 50px;
   background-color: #43e995;
   color: black;
   border: 0 !important;
 }
-.loginBody .remember {
+.login-body .remember {
   color: white;
 }
-.loginBody .remember input {
+.login-body .remember input {
   width: 30px;
   height: 20px;
   margin-left: 8px;
   margin-right: 5px;
 }
-.loginBody .login_btn {
+.login-body .login_btn {
   color: black;
   background-color: #43e995;
   width: 100px;
 }
-.loginBody .login_btn:hover {
+.login-body .login_btn:hover {
   color: black;
   background-color: white;
 }
-.loginBody .nav-link {
+.login-body .nav-link {
   color: #ffff;
   background-color: #6600FF;
 }
-.loginBody .link {
+.login-body .link {
   color: #00CC99;
 }
-.loginBody .link:hover {
+.login-body .link:hover {
   color: #fbf2ff;
 }
 @keyframes float {
@@ -11208,48 +11255,48 @@ a {
   }
 }
 
-.registerBody .container-fluid, .registerBody .container-sm, .registerBody .container-md, .registerBody .container-lg, .registerBody .container-xl, .registerBody .container-xxl {
+.register-body .container-fluid, .register-body .container-sm, .register-body .container-md, .register-body .container-lg, .register-body .container-xl, .register-body .container-xxl {
   height: 100%;
   align-content: center;
   background-color: #ffffff10;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-.registerBody .card {
+.register-body .card {
   height: 500px;
   margin: auto;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.5);
   animation: float 6s infinite;
 }
-.registerBody .card-header h3, .registerBody .card-header .h3 {
+.register-body .card-header h3, .register-body .card-header .h3 {
   color: white;
 }
-.registerBody .input-group span {
+.register-body .input-group span {
   width: 50px;
   background-color: #43e995;
   color: black;
   border: 0 !important;
 }
-.registerBody .remember {
+.register-body .remember {
   color: white;
 }
-.registerBody .remember input {
+.register-body .remember input {
   width: 30px;
   height: 20px;
   margin-left: 8px;
   margin-right: 5px;
 }
-.registerBody .register_btn {
+.register-body .register_btn {
   color: black;
   background-color: #43e995;
   width: 100px;
 }
-.registerBody .register_btn:hover {
+.register-body .register_btn:hover {
   color: black;
   background-color: white;
 }
-.registerBody .nav-link {
+.register-body .nav-link {
   color: #ffff;
   background-color: #6600FF;
 }
