@@ -15,10 +15,9 @@
     <section class="sidebar-container">
         <h3 class="titulo-menu mx-5 px-5 pt-4 pb-4">Menú</h3>
         <ul class="menu">
-            <li class="py-2 links">Ver últimos movimientos</li>
-            <li class="py-2 links">Enviar dinero</li>
-            <li class="py-2 links">Extraer dinero</li>
-            <li class="py-2 links">Depositar dinero</li>
+            <li class="py-2 links">Posición consolidada</li>
+            <li class="py-2 links">Cuentas</li>
+            <li class="py-2 links">Inversiones</li>
             <li class="py-2 links">Solicitar préstamo</li>
         </ul>
     </section>
@@ -44,17 +43,50 @@
                 </div>
             </nav>
         </header>
-        <main class="container-fluid p-0">
-            <!-- <section class="sidebar-container">
-                <h3 class="titulo-menu mx-5 px-5">Menú</h3>
-                <ul class="menu">
-                    <li class="py-2 links">Ver últimos movimientos</li>
-                    <li class="py-2 links">Enviar dinero</li>
-                    <li class="py-2 links">Extraer dinero</li>
-                    <li class="py-2 links">Depositar dinero</li>
-                    <li class="py-2 links">Solicitar préstamo</li>
-                </ul>
-            </section> -->
+        <main class="container-fluid">
+            <div class="container-fluid">
+                <div class="row pt-4">
+                    <div class="col-sm-12 col-md-7">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h1 class="titulo-home m-auto inline-block">Posición consolidada</h1>
+                                        <a class="btn btn-sm btn-secondary m-0 py-1 ms-3" href="#/TuCVU">Tu CVU</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-title mb-2 h5">Cuentas</p>
+                                <p class="card-subtitle h6">Caja de Ahorro $ #7485743</p>
+                                <p class="card-text text-muted">Saldo disponible: $0.00</p>
+                                <p class="card-title mb-2 h5">Inversiones</p>
+                                <p class="card-subtitle h6">Caja de Ahorro U$S #4789343</p>
+                                <p class="card-text text-muted">Total invertido: $0.00</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-evenly">
+                                    <a href="#" class="btn btn-primary m-1 px-4">Ingresar dinero</a>
+                                    <a href="#" class="btn btn-primary m-1 px-4 ">Transferir dinero</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-5">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="titulo-home m-auto">Últimos movimientos</h2>
+                            </div>
+                            <div class="card-body">
+                                <p>No se registran movimientos hasta el momento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 img-box">
+                    <img src="../assets/svg/investing.svg" alt="" class="img-fluid">
+                </div> 
+            </div>
         </main>
     </div>
     <script src="../js/bootstrap.min.js"></script>

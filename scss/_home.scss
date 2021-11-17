@@ -2,9 +2,10 @@
     display: flex;
 
     .sidebar-container {
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(lg) {
             display: none;
         }
+        font-size: 14px;
         min-height: 100vh;
         width: 30vh;
         border: 3px solid $secondary;
@@ -22,7 +23,6 @@
         padding: 0;
         margin: 20px 0;
         margin-bottom: 30px;
-        font-size: 16px;
         cursor: pointer;
         -webkit-transition: all .6s ease-in-out;
         -moz-transition: all .6s ease-in-out;
@@ -40,6 +40,31 @@
             padding-left: 40px;
             border-left: 3px solid $secondary;
             background-color: rgba($secondary, .05);
+        }
+    }
+    .card {
+
+        .titulo-home {
+            @include media-breakpoint-down(sm) {
+                font-size: .9rem;
+            }
+            font-size: 1.4rem;
+            letter-spacing: .1rem;
+            font-weight: bold;
+            color: $secondary;
+        }
+    }
+    .img-box {
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+        margin: auto;
+        animation: from-right 1.5s ease-in-out;
+
+        img {
+            padding-top: 8rem;
+            height: 450px;
+            width: 400px;
         }
     }
 }

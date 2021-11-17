@@ -11150,16 +11150,21 @@ a {
   border: 2px solid red;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .home-body {
   display: flex;
 }
 .home-body .sidebar-container {
+  font-size: 14px;
   min-height: 100vh;
   width: 30vh;
   border: 3px solid #00CC99;
   background-color: #fff;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
   .home-body .sidebar-container {
     display: none;
   }
@@ -11174,7 +11179,6 @@ a {
   padding: 0;
   margin: 20px 0;
   margin-bottom: 30px;
-  font-size: 16px;
   cursor: pointer;
   -webkit-transition: all 0.6s ease-in-out;
   -moz-transition: all 0.6s ease-in-out;
@@ -11192,6 +11196,31 @@ a {
   padding-left: 40px;
   border-left: 3px solid #00CC99;
   background-color: rgba(0, 204, 153, 0.05);
+}
+.home-body .card .titulo-home {
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  color: #00CC99;
+}
+@media (max-width: 575.98px) {
+  .home-body .card .titulo-home {
+    font-size: 0.9rem;
+  }
+}
+.home-body .img-box {
+  margin: auto;
+  animation: from-right 1.5s ease-in-out;
+}
+@media (max-width: 767.98px) {
+  .home-body .img-box {
+    display: none;
+  }
+}
+.home-body .img-box img {
+  padding-top: 8rem;
+  height: 450px;
+  width: 400px;
 }
 
 .login-body .container-fluid, .login-body .container-sm, .login-body .container-md, .login-body .container-lg, .login-body .container-xl, .login-body .container-xxl {
