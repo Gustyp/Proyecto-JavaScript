@@ -2,6 +2,9 @@
     display: flex;
 
     .sidebar-container {
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
         min-height: 100vh;
         width: 30vh;
         border: 3px solid $secondary;

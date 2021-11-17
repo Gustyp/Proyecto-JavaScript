@@ -11159,6 +11159,11 @@ a {
   border: 3px solid #00CC99;
   background-color: #fff;
 }
+@media (max-width: 575.98px) {
+  .home-body .sidebar-container {
+    display: none;
+  }
+}
 .home-body .sidebar-container .titulo-menu {
   font-size: 1.2rem;
   font-weight: bold;
