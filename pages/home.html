@@ -15,7 +15,7 @@
     <section class="sidebar-container">
         <h3 class="titulo-menu mx-5 px-5 pt-4 pb-4">Menú</h3>
         <ul class="menu">
-            <li class="py-2 links">Posición consolidada</li>
+            <li class="py-2 links links--selected">Posición consolidada</li>
             <li class="py-2 links">Cuentas</li>
             <li class="py-2 links">Inversiones</li>
             <li class="py-2 links">Solicitar préstamo</li>
@@ -25,7 +25,7 @@
         <header>
             <nav class="navbar navbar-dark navbar-expand-sm navbar-secondary bg-secondary shadow">
                 <div class="container">
-                    <a class="navbar-brand" href="#"><img width="40" height="40" src="../assets/images/digital-wallet.png" alt=""></a>
+                    <a class="navbar-brand d-flex align-items-center" href="#"><img width="40" height="40" src="../assets/images/digital-wallet.png" alt=""><span class="navbar-title ps-3">CoderBanking</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -50,8 +50,8 @@
                         <div class="card mb-3">
                             <div class="card-header">
                                 <div class="row align-items-center">
-                                    <div class="col">
-                                        <h1 class="titulo-home m-auto inline-block">Posición consolidada</h1>
+                                    <div class="col d-flex">
+                                        <h1 class="titulo-home my-auto inline-block">Posición consolidada</h1>
                                         <a class="btn btn-sm btn-secondary m-0 py-1 ms-3" href="#/TuCVU">Tu CVU</a>
                                     </div>
                                 </div>
@@ -59,15 +59,15 @@
                             <div class="card-body">
                                 <p class="card-title mb-2 h5">Cuentas</p>
                                 <p class="card-subtitle h6">Caja de Ahorro $ #7485743</p>
-                                <p class="card-text text-muted">Saldo disponible: $0.00</p>
+                                <p id="saldoDisponible" class="card-text text-muted">Saldo disponible: $0.00</p>
                                 <p class="card-title mb-2 h5">Inversiones</p>
                                 <p class="card-subtitle h6">Caja de Ahorro U$S #4789343</p>
                                 <p class="card-text text-muted">Total invertido: $0.00</p>
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-evenly">
-                                    <a href="#" class="btn btn-primary m-1 px-4">Ingresar dinero</a>
-                                    <a href="#" class="btn btn-primary m-1 px-4 ">Transferir dinero</a>
+                                    <button type="button" id="ingresoDinero" class="btn btn-primary m-1 px-4">Ingresar dinero</button>
+                                    <button type="button" id="envioDinero" class="btn btn-primary m-1 px-4 ">Transferir dinero</button>
                                 </div>
                             </div>
                         </div>
@@ -77,18 +77,64 @@
                             <div class="card-header">
                                 <h2 class="titulo-home m-auto">Últimos movimientos</h2>
                             </div>
-                            <div class="card-body">
-                                <p>No se registran movimientos hasta el momento.</p>
+                            <div id="ultimosMovimientos" class="card-body">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 img-box">
+                <div class="col-md-4 img-box">
                     <img src="../assets/svg/investing.svg" alt="" class="img-fluid">
                 </div> 
             </div>
         </main>
-    </div>
-    <script src="../js/bootstrap.min.js"></script>
+        <!-- Botón Modal -->
+        <button type="button" class="btn btn-primary hidden transferencia-modal" data-bs-toggle="modal" data-bs-target="#transferencia"></button>
+        <!-- Modal -->
+        <div class="modal fade" id="transferencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form id="transaccion">
+                        <div class="modal-header">
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group align-items-center">
+                                <small for="transferencia" class="pe-2" id="textoTransferencia"></small>
+                                <input type="number" name="transferencia" class="form-control ms-2">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="button" id="volverAlHome" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Botón Modal -->
+        <button type="button" class="btn btn-primary hidden operacion-realizada-modal" data-bs-toggle="modal" data-bs-target="#confirmacion"></button>
+        <!-- Modal -->
+        <div class="modal fade" id="confirmacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form id="transaccionFinalizada">
+                        <div class="modal-header">
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group align-items-center">
+                                <small for="deposito" class="pe-2" id="textoOperacionRealizada"></small>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="transaccionRealizada" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../src/home.js"></script>
+    <script src="../src/configuracionUsuarios.js"></script>
+    <script src="../src/operaciones.js"></script>
 </body>
 </html>
