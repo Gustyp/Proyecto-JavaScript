@@ -28,7 +28,22 @@ class Transferencia{
         this.monto = monto;
         this.tipo = tipo;
         this.destinatario = destinatario;
-        this.descripcion = `- Se ha transferido $${this.monto} de su cuenta a : ${this.destinatario}`
+        this.descripcion = `- Se ha transferido $${this.monto} de su cuenta a : ${this.destinatario}.`
+    }
+}
+
+class TransferenciaRecibida{
+    /**
+     * 
+     * @param {Number} monto Monto que se transferirá de la cuenta del usuario
+     * @param {String} tipo Tipo de operación que ha realizado el usuario
+     * @param {String} remitente Remitente de la cuenta desde la cuál se realiza la transferencia
+     */
+    constructor(monto, tipo, remitente){
+        this.monto = monto;
+        this.tipo = tipo;
+        this.remitente = remitente;
+        this.descripcion = `- Ha recibido $${this.monto} en su cuenta desde: ${this.remitente}.`
     }
 }
 
@@ -48,8 +63,15 @@ const crearDeposito = (monto) => {
  * @param {Number} monto Monto de la transferencia 
  * @returns {Object} Devuelve la transferencia creada
  */
-const crearTransferencia = (monto) => {
+const crearTransferencia = (monto, destinatario) => {
     const tipo = `Transferencia`;
-    const transferencia = new Transferencia(monto, tipo);
+    const transferencia = new Transferencia(monto, tipo, destinatario);
+    return transferencia;
+}
+
+
+const crearTransferenciaRecibida = (monto, remitente) => {
+    const tipo = `Transferencia recibida`;
+    const transferencia = new TransferenciaRecibida(monto, tipo, remitente);
     return transferencia;
 }

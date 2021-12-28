@@ -10,8 +10,10 @@ const iniciar = () => {
     localStorage.removeItem('Usuario-Actual');
     GestionUsuarios.iniciar();
     // Evento que se encarga de otener los datos del formulario de login al presionar el botón Enviar
-    document.querySelector('#loginForm').addEventListener('submit', obtenerDatosFormulario);
+    $(() => $('#loginForm').on('submit', obtenerDatosFormulario)); 
+    // document.querySelector('#loginForm').addEventListener('submit', obtenerDatosFormulario);
 }
 
 // Este evento carga la información desde el localStorage
-window.addEventListener('load', iniciar);
+$(() => iniciar());
+// window.addEventListener('load', iniciar);
