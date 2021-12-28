@@ -15,8 +15,8 @@
     <section class="sidebar-container">
         <h3 class="titulo-menu mx-5 px-5 pt-4 pb-4">Menú</h3>
         <ul class="menu">
-            <li class="py-2 links links--selected">Posición consolidada</li>
-            <li class="py-2 links">Cotizaciones</li>
+            <li class="py-2 links">Posición consolidada</li>
+            <li class="py-2 links links--selected">Cotizaciones</li>
             <li class="py-2 links">Inversiones</li>
             <li class="py-2 links">Solicitar préstamo</li>
         </ul>
@@ -46,7 +46,7 @@
         <main class="container-fluid">
             <div class="container-fluid">
                 <div class="row pt-4">
-                    <div class="col-sm-12 col-md-7">
+                    <!-- <div class="col-sm-12 col-md-7">
                         <div class="card mb-3">
                             <div class="card-header">
                                 <div class="row align-items-center">
@@ -64,27 +64,92 @@
                                 <p class="card-subtitle h6">Caja de Ahorro U$S #4789343</p>
                                 <p class="card-text text-muted">Total invertido: $0.00</p>
                             </div>
-                            <div class="card-footer">
-                                <div class="d-flex justify-content-evenly">
-                                    <button type="button" id="ingresoDinero" class="btn btn-primary m-1 px-4">Ingresar dinero</button>
-                                    <button type="button" id="envioDinero" class="btn btn-primary m-1 px-4 ">Transferir dinero</button>
+                        </div>
+                    </div> -->
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="titulo-home m-auto">Cotizaciones</h2>
+                            </div>
+                            <div class="card-body" id="ultimasCotizaciones">
+                                <div class="card-body" id="CotizacionesDolar">
+                                    <div class="row">
+                                        <div class="col-sm-12 my-2">
+                                            <div class="m-auto row">
+                                                <h3>Cotizaciones Dolar</h3>
+                                                <h6 class="text-muted">Última act.</h6> <h6><span class="text-muted" id="actualizacionDolar">xx:xx:xx</span></h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 my-3 ms-3">
+                                                <h6 class="text-muted">Dolar Oficial</h6>
+                                                <div>
+                                                    <h6 class="font-weiht-bold">Compra:</h6> 
+                                                    <span id="DolarOffCompra">$00,00</span>
+                                                </div>
+                                                <div>
+                                                    <h6 class="font-weiht-bold">Venta:</h6> 
+                                                    <span id="DolarOffVenta">$00,00</span>
+                                                </div>
+                                                <div>
+                                                    <h6 class="font-weiht-bold">Variación:</h6>  
+                                                    <span id="DolarOffVariacion">$00,00</span>
+                                                </div>
+                                        </div>
+                                        <div class="col-sm-5 my-3 ms-3">
+                                            <h6 class="text-muted">Dolar Blue</h6>
+                                            <h6 class="font-weiht-bold">Compra:</h6>
+                                            <span id="DolarBlueCompra">$00,00</span>
+                                            <h6 class="font-weiht-bold">Compra:</h6> 
+                                            <span id="DolarBlueVenta">$00,00</span>
+                                            <h6 class="font-weiht-bold">Variacion:</h6>  
+                                            <span id="DolarBlueVariacion">$00,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body" id="CotizacionesEuro">
+                                    <div class="row">
+                                        <div class="col-sm-12 my-2">
+                                            <div class="m-auto row">
+                                                <h3>Cotizaciones Euro </h3>
+                                                <h6 class="text-muted">Última act:</h6> 
+                                                <span class="text-muted" id="actualizacionEuro">xx:xx:xx</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 my-3 ms-3">
+                                            <div class="">
+                                                <h6 class="text-muted">Euro</h6>
+                                                <h6 class="font-weiht-bold">Compra:</h6> <span id="EuroCompra">$00,00</span>
+                                                <h6 class="font-weiht-bold">Venta:</h6> <span id="EuroVenta"> $00,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body" id="CotizacionesReal">
+                                    <div class="row">
+                                        <div class="col-sm-12 my-2">
+                                            <div class="mx-auto row">
+                                                <h3>Cotizaciones Real</h3>
+                                                <h6 class="text-muted">Última act:</h6> <span class="text-muted" id="actualizacionReal">xx:xx:xx</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 my-3 ms-3">
+                                            <div class="">
+                                                <h6 class="text-muted">Real</h6>
+                                                <h6 class="font-weiht-bold" id="">Compra:</h6>
+                                                <span id="RealCompra">$00,00</span>
+                                                <h6 class="font-weiht-bold" id="realCompra">Venta:</h6>
+                                                <span id="RealVenta"> $00,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-5">
-                        <div class="card">
-                            <div class="card-header">
-                                <h2 class="titulo-home m-auto">Últimos movimientos</h2>
-                            </div>
-                            <div id="ultimosMovimientos" class="card-body">
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="col-md-4 img-box">
+                <!-- <div class="col-md-4 img-box">
                     <img src="../assets/svg/investing.svg" alt="" class="img-fluid">
-                </div> 
+                </div>  -->
             </div>
         </main>
         <!-- Botón Modal -->
@@ -111,8 +176,6 @@
     </div> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="../src/home.js"></script>
-    <script src="../src/configuracionUsuarios.js"></script>
-    <script src="../src/operaciones.js"></script>
+    <script src="../src/cotizaciones.js"></script>
 </body>
 </html>
