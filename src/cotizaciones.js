@@ -2,27 +2,15 @@ const URL_API_DOLARSI = "https://www.dolarsi.com/api/api.php?type=valoresprincip
 const URL_API_DOLAR_ARGENTINA_EURO = "https://api-dolar-argentina.herokuapp.com/api/euro/nacion"
 const URL_API_DOLAR_ARGENTINA_REAL = "https://api-dolar-argentina.herokuapp.com/api/real/nacion"
 
-let valorDolarOficialVariacion;
-let valorDolarOficialCompra;
-let valorDolarOficialVenta;
 
-let valorDolarBlueCompra;
-let valorDolarBlueVenta;
-let valorDolarBlueVariacion;
-
-let valorEuroCompra;
-let valorEuroVenta;
-
-let valorRealCompra;
-let valorRealVenta;
-
-let actualizacionDolar;
-let actualizacionEuro;
-let actualizacionReal;
-
-
-
-function servicioDolar() {
+const servicioDolar = () => {
+    let valorDolarOficialVariacion;
+    let valorDolarOficialCompra;
+    let valorDolarOficialVenta;
+    let valorDolarBlueCompra;
+    let valorDolarBlueVenta;
+    let valorDolarBlueVariacion;
+    let actualizacionDolar;
 
     $.get(URL_API_DOLARSI, (res) => {
         let resultado = [];
@@ -53,9 +41,11 @@ function servicioDolar() {
     });
 }
 
+const servicioEuro = () => {
 
-
-function servicioEuro() {
+    let valorEuroCompra;
+    let valorEuroVenta;
+    let actualizacionEuro;
     // Leo los valores del euro
     $.ajax({
 
@@ -78,14 +68,15 @@ function servicioEuro() {
             actualizacionEuro = formatDate(new Date());
             document.getElementById("actualizacionEuro").textContent = actualizacionEuro;
         },
-        error: function() { console.log('Falla'); },
+        // error: function() { console.log('Falla'); },
     });
 }
 
+const servicioReal = () => {
 
-
-function servicioReal() {
-
+    let valorRealCompra;
+    let valorRealVenta;
+    let actualizacionReal;
     // Leo los valores del real
     $.ajax({
 
@@ -108,7 +99,7 @@ function servicioReal() {
             actualizacionReal = formatDate(new Date());
             document.getElementById("actualizacionReal").textContent = actualizacionReal;
         },
-        error: function() { console.log('Falla'); },
+        // error: function() { console.log('Falla'); },
     });
 
 
