@@ -11128,9 +11128,14 @@ html, body {
   background-image: linear-gradient(to right bottom, #257389, #078496, #00959e, #00a6a2, #00b7a2, #00b9b2, #00bac0, #00bacc, #00a8ec, #0090ff, #006bff, #6600ff);
   background-repeat: no-repeat;
   height: 100%;
-  font-size: 16px;
+  font-size: 12px;
   font-family: "Roboto Slab", serif;
   overflow-x: hidden;
+}
+@media (min-width: 768px) {
+  html, body {
+    font-size: 16px;
+  }
 }
 
 ul, li {
@@ -11190,20 +11195,29 @@ a {
   transition: all 0.6s ease-in-out;
   text-align: left;
   vertical-align: text-bottom;
-  color: #666;
   border: 0;
   background-color: transparent;
 }
+.home-body .sidebar-container .links p {
+  margin: 0;
+  padding: 0;
+  color: #666666;
+}
+.home-body .sidebar-container .links p:hover {
+  color: #00CC99;
+  transition: all 0.6s ease-in-out;
+}
 .home-body .sidebar-container .links--selected {
   margin-left: -30px;
-  color: #6600FF;
   padding-left: 40px;
   border-left: 3px solid #6600FF;
   background-color: rgba(102, 0, 255, 0.05);
 }
+.home-body .sidebar-container .links--selected .selected {
+  color: #6600FF;
+}
 .home-body .sidebar-container .links:hover {
   margin-left: -30px;
-  color: #00CC99;
   padding-left: 40px;
   border-left: 3px solid #00CC99;
   background-color: rgba(0, 204, 153, 0.05);

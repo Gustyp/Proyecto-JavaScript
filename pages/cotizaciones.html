@@ -15,10 +15,10 @@
     <section class="sidebar-container">
         <h3 class="titulo-menu mx-5 px-5 pt-4 pb-4">Menú</h3>
         <ul class="menu">
-            <li class="py-2 links">Posición consolidada</li>
-            <li class="py-2 links links--selected">Cotizaciones</li>
-            <li class="py-2 links">Inversiones</li>
-            <li class="py-2 links">Solicitar préstamo</li>
+            <li class="py-2 links"><a href="home.html"><p>Posición consolidada</p></a></li>
+            <li class="py-2 links links--selected"><a href="cotizaciones.html"><p class="selected">Cotizaciones</p></a></li>
+            <li class="py-2 links"><a href=""><p>Inversiones</p></a></li>
+            <li class="py-2 links"><a href=""><p>Solicitar préstamo</p></a></li>
         </ul>
     </section>
     <div class="w-100 h-100">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="col-md-11 m-auto">
+                    <div class="col-md-10 m-auto">
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="titulo-home m-auto">Cotizaciones</h2>
@@ -76,7 +76,7 @@
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 my-2">
                                             <div class="m-auto row">
-                                                <h3>Cotizaciones Dolar</h3>
+                                                <h3>Dólar</h3>
                                                 <h6 class="text-muted">Última act.</h6> <h6><span class="text-muted" id="actualizacionDolar">xx:xx:xx</span></h6>
                                             </div>
                                         </div>
@@ -89,7 +89,7 @@
                                             <h6 class="font-weiht-bold">Variación:</h6>  
                                             <span id="DolarOficialVariacion">$00,00</span>
                                         </div>
-                                        <div class="col-5 col-md-3 my-3 ms-3">
+                                        <div class="col-5 col-md-3 my-3">
                                             <h6 class="text-muted">Dolar Blue</h6>
                                             <h6 class="font-weiht-bold">Compra:</h6>
                                             <span id="DolarBlueCompra">$00,00</span>
@@ -100,12 +100,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="card-body col-6" id="CotizacionesEuro">
-                                        <div class="row">
+                                <div class="row m-auto">
+                                    <div class="card-body col-5" id="CotizacionesEuro">
                                             <div class="col-sm-12 my-2">
                                                 <div class="m-auto row">
-                                                    <h3>Cotizaciones Euro </h3>
+                                                    <h3>Euro </h3>
                                                     <h6 class="text-muted">Última act:</h6> 
                                                     <span class="text-muted" id="actualizacionEuro">xx:xx:xx</span>
                                                 </div>
@@ -119,13 +118,11 @@
                                                     <span id="EuroVenta"> $00,00</span>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
-                                    <div class="card-body col-6" id="CotizacionesReal">
-                                        <div class="row">
+                                    <div class="card-body col-5" id="CotizacionesReal">
                                             <div class="col-sm-12 my-2">
                                                 <div class="mx-auto row">
-                                                    <h3>Cotizaciones Real</h3>
+                                                    <h3>Real</h3>
                                                     <h6 class="text-muted">Última act:</h6> <span class="text-muted" id="actualizacionReal">xx:xx:xx</span>
                                                 </div>
                                             </div>
@@ -138,7 +135,6 @@
                                                     <span id="RealVenta"> $00,00</span>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

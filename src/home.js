@@ -1,6 +1,6 @@
 const volverAHome = () => window.location.href="./home.html";
 
-const coincideUsuario = (destinatario, dineroTransferencia) => {
+const existeElUsuario = (destinatario, dineroTransferencia) => {
     arrayUsuarioValido = [];
     const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
     const existeUsuarioNombre = GestionUsuarios.usuarios.find(usuario => usuario.usuario == destinatario);
@@ -32,7 +32,7 @@ const transferirAUsuario = e => {
     const data = new FormData(e.target);
     const dineroTransferencia = data.get(`transferencia`);
     const destinatario = data.get(`destinatario`);
-        if (coincideUsuario(destinatario, dineroTransferencia)){
+        if (existeElUsuario(destinatario, dineroTransferencia)){
             const transferencia = crearTransferencia(dineroTransferencia, destinatario);
             console.log(`La transferencia es de ${dineroTransferencia}`);
             console.log(transferencia);
@@ -42,7 +42,6 @@ const transferirAUsuario = e => {
             document.querySelector('#textoOperacionRealizada').innerHTML = `¡Operación realizada con éxito!`;
             usuarioEnUso.saldo-= Number(dineroTransferencia);
             localStorage.setItem('Usuarios', JSON.stringify(GestionUsuarios.usuarios));
-            // document.querySelector('#transaccionRealizada').addEventListener('click', volverAHome);
             $(() => $('#transaccionRealizada').on('click', volverAHome));
         }
 }
@@ -52,44 +51,9 @@ const transferirDinero = () =>{
     console.log(usuarioEnUso);
     const saldoDisponible = document.querySelector('#saldoDisponible');
     console.log(`Transferencia de dinero`);
-    const main = document.querySelector(`main`);
-    let nuevoModal = document.createElement(`div`);
-    nuevoModal.innerHTML = `
-    <!-- Botón Modal -->
-    <button type="button" class="btn btn-primary hidden transferencia-modal" data-bs-toggle="modal" data-bs-target="#transferencia"></button>
-    <!-- Modal -->
-    <div class="modal fade" id="transferencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <form id="transaccion">
-                    <div class="modal-header">
-                        <p class="modal-title h4" id="exampleModalLabel">Transferencia</p>
-                    </div>
-                    <div class="modal-body">
-                        <div class="input-group align-items-center">
-                            <small for="transferencia" class="pe-2" id="textoTransferencia"></small>
-                            <input type="number" name="transferencia" class="form-control m-2" placeholder="$">
-                        </div>
-                        <div class="input-group align-items-center">
-                            <small for="transferencia" class="pe-2" id="textoDestinatario"></small>
-                            <input type="text" name="destinatario" class="form-control m-2" placeholder="CVU / nombre de usuario / mail">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="button" id="volverAlHome" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>`
-    main.appendChild(nuevoModal);         
-    document.querySelector('#textoTransferencia').innerHTML = `Ingrese el valor de su transferencia:`;
-    document.querySelector(`#textoDestinatario`).innerHTML = `Ingrese destinatario:`;
-    document.querySelector(`.transferencia-modal`).click();
+    crearModalTransferencia();
     saldoDisponible.innerHTML = `Saldo disponible: $${usuarioEnUso.saldo}`;
     $(() => $('#volverAlHome').on('click', volverAHome));  
-    // document.querySelector('#transaccion').addEventListener('submit', e =>{
     $(() => $('#transaccion').on('submit', transferirAUsuario));    
 }
 
@@ -107,7 +71,6 @@ const depositarEnCuenta = e => {
     document.querySelector('#textoOperacionRealizada').innerHTML = `¡Operación realizada con éxito!`;
     usuarioEnUso.saldo+= Number(dineroDeposito);
     localStorage.setItem('Usuarios', JSON.stringify(GestionUsuarios.usuarios));
-    // document.querySelector('#transaccionRealizada').addEventListener('click', volverAHome);
     $(() => $('#transaccionRealizada').on('click', volverAHome));
 }
 
@@ -116,39 +79,8 @@ const depositarDinero = () => {
     const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
     console.log(usuarioEnUso);
     console.log(`Depósito de dinero`);
-    const main = document.querySelector(`main`);
-    let nuevoModal = document.createElement(`div`);
-    nuevoModal.innerHTML = `
-    <!-- Botón Modal -->
-    <button type="button" class="btn btn-primary hidden transferencia-modal" data-bs-toggle="modal" data-bs-target="#transferencia"></button>
-    <!-- Modal -->
-    <div class="modal fade" id="transferencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <form id="transaccion">
-                    <div class="modal-header">
-                        <p class="modal-title h4" id="exampleModalLabel">Transferencia</p>
-                    </div>
-                    <div class="modal-body">
-                        <div class="input-group align-items-center">
-                            <small for="transferencia" class="pe-2" id="textoTransferencia"></small>
-                            <input type="number" name="transferencia" class="form-control m-2" placeholder="$">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="button" id="volverAlHome" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>`
-    main.appendChild(nuevoModal);  
-    document.querySelector('#textoTransferencia').innerHTML = `Ingrese el valor de su depósito:`;
-    document.querySelector(`.transferencia-modal`).click();
+    crearModalDeposito();
     saldoDisponible.innerHTML = `Saldo disponible: $${usuarioEnUso.saldo}`;
-    // document.querySelector('#transaccion').addEventListener('submit', depositarEnCuenta);
-    // document.querySelector(`#volverAlHome`).addEventListener('click', volverAHome);
     $(() => $('#transaccion').on('submit', depositarEnCuenta));
     $(() => $('#volverAlHome').on('click', volverAHome));
 }
@@ -162,6 +94,10 @@ const agregarMovimientos = usuarioEnUso => {
     })
 }
 
+/**
+ * 
+ * @param {*} usuarioEnUso 
+ */
 const mostrarNoHayMovimientos = usuarioEnUso => {
     const resumen = document.querySelector(`#ultimosMovimientos`);
     if(usuarioEnUso.movimientos.length == 0){
@@ -171,6 +107,9 @@ const mostrarNoHayMovimientos = usuarioEnUso => {
     }
 }
 
+/**
+ * 
+ */
 const iniciar = () => {
     GestionUsuarios.iniciar();
     const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
@@ -178,13 +117,9 @@ const iniciar = () => {
     console.log(usuarioEnUso.movimientos);
     mostrarNoHayMovimientos(usuarioEnUso);
     agregarMovimientos(usuarioEnUso);
-    // document.querySelector(`#ingresoDinero`).addEventListener(`click`, depositarDinero);
-    // document.querySelector(`#envioDinero`).addEventListener(`click`, transferirDinero);
     $(() => $('#ingresoDinero').on('click', depositarDinero));
     $(() => $('#envioDinero').on('click', transferirDinero));
 }
 
-
 // Este evento carga la información desde el localStorage
 $(() => iniciar());
-// window.addEventListener('load', iniciar);

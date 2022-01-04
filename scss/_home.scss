@@ -1,6 +1,5 @@
 .home-body {
     display: flex;
-
     .sidebar-container {
         @include media-breakpoint-down(lg) {
             display: none;
@@ -29,21 +28,33 @@
             transition: all .6s ease-in-out;
             text-align: left;
             vertical-align: text-bottom;
-            color: #666;
             border: 0;
             background-color: transparent;
+
+            p{
+                margin: 0;
+                padding: 0;
+                color: #666666;
+
+                &:hover{
+                    color: $secondary;
+                    transition: all .6s ease-in-out;
+                }
+            }
         
             &--selected{
                 margin-left: -30px;
-                color: $primary;
                 padding-left: 40px;
                 border-left: 3px solid $primary;
                 background-color: rgba($primary, .05);
+
+                .selected {
+                    color: $primary;
+                }
             }
         
             &:hover {
                 margin-left: -30px;
-                color: $secondary;
                 padding-left: 40px;
                 border-left: 3px solid $secondary;
                 background-color: rgba($secondary, .05);
