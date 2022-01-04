@@ -42,5 +42,20 @@ async function cotizacionEuro() {
     document.querySelector("#EuroVenta").innerHTML = `$ ${euroVenta}`;
 }
 
-// cotizacionDolar();
+async function cotizacionReal() {
+    const response = await fetch(`https://www.dolarsi.com/api/api.php?type=real`)
+    const datosReal = await response.json()
+    console.log(datosReal);
+    let real = (Object.entries(datosReal).find(realArray => realArray[1].casa.nombre == "Banco Nación"));
+    console.log(real);
+    let realCompra = real[1].casa.compra;
+    console.log(realCompra);
+    let realVenta = real[1].casa.venta;
+    console.log(realVenta);
+    document.querySelector("#RealCompra").innerHTML = `$ ${realCompra}`;
+    document.querySelector("#RealVenta").innerHTML = `$ ${realVenta}`;
+}
+
+cotizacionDolar();
 cotizacionEuro();
+cotizacionReal();
