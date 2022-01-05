@@ -1,3 +1,6 @@
+/**
+ * Se encarga de obtener los datos de la cotización del dólar oficial y dólar blue
+ */
 async function cotizacionDolar() {
     const response = await fetch(`https://www.dolarsi.com/api/api.php?type=valoresprincipales`)
     const datosDolar = await response.json()
@@ -28,6 +31,9 @@ async function cotizacionDolar() {
     document.querySelector("#DolarOficialVariacion").innerHTML = `$ ${dolarOficialVariacion}`;
 }
 
+/**
+ * Se encarga de obtener los datos de la cotización del euro
+ */
 async function cotizacionEuro() {
     const response = await fetch(`https://www.dolarsi.com/api/api.php?type=euro`)
     const datosEuro = await response.json()
@@ -42,6 +48,9 @@ async function cotizacionEuro() {
     document.querySelector("#EuroVenta").innerHTML = `$ ${euroVenta}`;
 }
 
+/**
+ * Se encarga de obtener los datos de la cotización del real
+ */
 async function cotizacionReal() {
     const response = await fetch(`https://www.dolarsi.com/api/api.php?type=real`)
     const datosReal = await response.json()
@@ -55,6 +64,7 @@ async function cotizacionReal() {
     document.querySelector("#RealCompra").innerHTML = `$ ${realCompra}`;
     document.querySelector("#RealVenta").innerHTML = `$ ${realVenta}`;
 }
+
 
 cotizacionDolar();
 cotizacionEuro();

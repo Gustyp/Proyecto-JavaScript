@@ -1,3 +1,7 @@
+/**
+ * Se encarga de crear un nuevo modal genérico
+ * @returns {String} Devuelve el modal creado
+ */
 const crearNuevoModal = () => {
     let nuevoModal = document.createElement(`div`);
     nuevoModal.innerHTML = `
@@ -24,6 +28,9 @@ const crearNuevoModal = () => {
     return nuevoModal;
 }
 
+/**
+ * Se encarga de crear el nuevo modal de transferencia
+ */
 const crearModalTransferencia = () => {
     const main = document.querySelector(`main`);
     const nuevoModal = crearNuevoModal();
@@ -43,6 +50,9 @@ const crearModalTransferencia = () => {
     document.querySelector(`.operacion-modal`).click();
 }
 
+/**
+ * Se encarga de crear el nuevo modal de depósito
+ */
 const crearModalDeposito = () => {
     const main = document.querySelector(`main`);
     let nuevoModal = crearNuevoModal();

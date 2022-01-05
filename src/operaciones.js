@@ -32,6 +32,9 @@ class Transferencia{
     }
 }
 
+/**
+ * Clase que simula una transferencia recibida
+ */
 class TransferenciaRecibida{
     /**
      * 
@@ -69,7 +72,12 @@ const crearTransferencia = (monto, destinatario) => {
     return transferencia;
 }
 
-
+/**
+ * 
+ * @param {Number} monto Monto de la transferencia
+ * @param {String} remitente Remitente quién envia la transferencia
+ * @returns {Object} Devuelve la transferencia recibida creada
+ */
 const crearTransferenciaRecibida = (monto, remitente) => {
     const tipo = `Transferencia recibida`;
     const transferencia = new TransferenciaRecibida(monto, tipo, remitente);

@@ -1,3 +1,6 @@
+/**
+ * Función que se encarga de obtener los datos del formulario de registro
+ */
 const obtenerDatosFormulario = e => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -10,14 +13,15 @@ const obtenerDatosFormulario = e => {
     GestionUsuarios.crearNuevoUsuario(usuario, email, password, rePassword);
 }
 
+/**
+ * Función que se encarga de cargar los datos almacenados en localStorage
+ */
 const iniciar = () => {
     localStorage.removeItem('Usuario-Actual');
     GestionUsuarios.iniciar();
     // Evento que se encarga de otener los datos del formulario de registro al presionar el botón Enviar
     $(() => $('#registerForm').on('submit', obtenerDatosFormulario)); 
-    // document.querySelector('#registerForm').addEventListener('submit', obtenerDatosFormulario);
 }
 
 // Este evento carga la información desde el localStorage
 $(() => iniciar());
-// window.addEventListener('load', iniciar);
