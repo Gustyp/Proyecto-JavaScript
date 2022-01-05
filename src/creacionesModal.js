@@ -62,6 +62,7 @@ const crearModalDeposito = () => {
         <small for="transferencia" class="pe-2" id="textoTransferencia"></small>
         <input type="number" name="transferencia" class="form-control m-2" placeholder="$">
     </div>`  
+    document.querySelector(`#tituloModal`).innerHTML = `Depósito`;  
     document.querySelector('#textoTransferencia').innerHTML = `Ingrese el valor de su depósito:`;
     document.querySelector(`.operacion-modal`).click();
 }
