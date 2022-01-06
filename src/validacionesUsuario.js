@@ -109,8 +109,6 @@ class ValidacionUsuario{
         const formulario = document.querySelector("#registerForm");
         const formControl = formulario.sameRegisterPassword;
         if (password !== rePassword) {
-            // const formulario = document.querySelector("#registerForm");
-            // const formControl = formulario.sameRegisterPassword;
             ValidacionUsuario.mostrarError(formControl, mensajeErrorContraseniasNoCoinciden);
             return false;
         }

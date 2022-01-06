@@ -70,18 +70,18 @@ const transferirAUsuario = e => {
     const data = new FormData(e.target);
     const dineroTransferencia = data.get(`transferencia`);
     const destinatario = data.get(`destinatario`);
-        if (esUsuarioValido(destinatario, dineroTransferencia)){
-            const transferencia = crearTransferencia(dineroTransferencia, destinatario);
-            console.log(`La transferencia es de ${dineroTransferencia}`);
-            console.log(transferencia);
-            usuarioEnUso.movimientos.push(transferencia);
-            console.log(usuarioEnUso.movimientos);
-            document.querySelector(`.operacion-realizada-modal`).click();
-            document.querySelector('#textoOperacionRealizada').innerHTML = `¡Operación realizada con éxito!`;
-            usuarioEnUso.saldo-= Number(dineroTransferencia);
-            localStorage.setItem('Usuarios', JSON.stringify(GestionUsuarios.usuarios));
-            $(() => $('#transaccionRealizada').on('click', volverAHome));
-        }
+    if (esUsuarioValido(destinatario, dineroTransferencia)){
+        const transferencia = crearTransferencia(dineroTransferencia, destinatario);
+        console.log(`La transferencia es de ${dineroTransferencia}`);
+        console.log(transferencia);
+        usuarioEnUso.movimientos.push(transferencia);
+        console.log(usuarioEnUso.movimientos);
+        document.querySelector(`.operacion-realizada-modal`).click();
+        document.querySelector('#textoOperacionRealizada').innerHTML = `¡Operación realizada con éxito!`;
+        usuarioEnUso.saldo-= Number(dineroTransferencia);
+        localStorage.setItem('Usuarios', JSON.stringify(GestionUsuarios.usuarios));
+        $(() => $('#transaccionRealizada').on('click', volverAHome));
+    }
 }
 
 const transferirDinero = () =>{
