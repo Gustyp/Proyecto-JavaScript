@@ -1,7 +1,15 @@
+/**
+ * Se encarga de regresar a la home mediante un evento
+ */
 const volverAHome = () => window.location.href="./home.html";
 
-const esMontoValido = dineroTransferencia => {
-    if (dineroTransferencia <= 0 || dineroTransferencia == ``){
+/**
+ * Se encarga de verificar que el monto ingresado sea válido
+ * @param {Number} monto Monto de la operación a realizarse
+ * @returns {Boolean} Devuelve true en caso de que el valor ingresado sea mayor a 0 y no se encuentre vacío, en caso contrario devolverá false
+ */
+const esMontoValido = monto => {
+    if (monto <= 0 || monto == ``){
         Swal.fire({
             icon: 'error',
             title: 'Ups...',
@@ -13,9 +21,18 @@ const esMontoValido = dineroTransferencia => {
     return true;
 }
 
+/**
+ * Se encarga de verificar que la solicitud de depósito sea válida
+ * @param {Number} dineroDeposito Monto del depósito a realizarse
+ * @returns {Boolean} Devuelve true solamente en caso de que el depósito sea válido
+ */
 const esDepositoValido = dineroDeposito => esMontoValido(dineroDeposito);
 
-
+/**
+ * Se encarga de verificar que el destinatario exista
+ * @param {String} destinatario Identificatorio del usuario al que se le enviará el dinero 
+ * @returns Devuelve el usuario encontrado en caso de que se encuentre similitud a una cuenta creada, de lo contrario devolverá false
+ */
 const existeUsuario = destinatario => {
     arrayUsuarioExistente = [];
     const existeUsuarioNombre = GestionUsuarios.usuarios.find(usuario => usuario.usuario == destinatario);
@@ -36,10 +53,17 @@ const existeUsuario = destinatario => {
     const usuarioEncontrado = filterUsuarioEncontrado[0];
     console.log(`El usuario encontrado es: `);
     console.log(usuarioEncontrado.usuario);
-    return usuarioEncontrado.usuario;
+    return usuarioEncontrado;
 }
 
+/**
+ * Se encarga de verificar si el usuario al que se envia la transferencia existe y si el monto a enviar es válido
+ * @param {String} destinatario Identificatorio del usuario al que se le enviará el dinero 
+ * @param {Number} dineroTransferencia Monto de la transferencia a realizarse
+ * @returns {Boolean} Devuelve true en caso de que el usuario exista y el monto sea válido, en caso contrario devolverá false
+ */
 const esUsuarioValido = (destinatario, dineroTransferencia) => {
+    const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
     const usuarioExistente = existeUsuario(destinatario);
     const montoAceptado = esMontoValido(dineroTransferencia);
     if (usuarioExistente && montoAceptado){
@@ -55,15 +79,18 @@ const esUsuarioValido = (destinatario, dineroTransferencia) => {
         }
         console.log(`Arriba lee.`);
         const transferenciaRecibida = crearTransferenciaRecibida(dineroTransferencia, usuarioEnUso.usuario);
-        console.log(`La transferencia que recibirá ${usuarioEncontrado.usuario} es de $${dineroTransferencia}`);
+        console.log(`La transferencia que recibirá ${usuarioExistente.usuario} es de $${dineroTransferencia}`);
         console.log(dineroTransferencia);
-        usuarioEncontrado.movimientos.push(transferenciaRecibida);
+        usuarioExistente.movimientos.push(transferenciaRecibida);
         localStorage.setItem('Usuarios', JSON.stringify(GestionUsuarios.usuarios));
         return true;
     }
     return false;
 }
 
+/**
+ * Se encarga de realizar la transferencia de dinero, si es un monto válido y si es que existe el destinatario
+ */
 const transferirAUsuario = e => {
     e.preventDefault();
     const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
@@ -84,6 +111,9 @@ const transferirAUsuario = e => {
     }
 }
 
+/**
+ * Se encarga de crear el modal de transferencia de dinero, y administrar el evento para transferir a otra cuenta o volver a la home
+ */
 const transferirDinero = () =>{
     const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
     console.log(usuarioEnUso);
@@ -95,6 +125,9 @@ const transferirDinero = () =>{
     $(() => $('#transaccion').on('submit', transferirAUsuario));    
 }
 
+/**
+ * Se encarga de realizar el depósito de dinero en la cuenta del usuario si es un monto válido
+ */
 const depositarEnCuenta = e => {
     e.preventDefault();
     const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
@@ -114,6 +147,9 @@ const depositarEnCuenta = e => {
     }
 }
 
+/**
+ * Se encarga de crear el modal de depósito de dinero, y administrar el evento para depositar en la cuenta o volver a la home
+ */
 const depositarDinero = () => {
     const saldoDisponible = document.querySelector('#saldoDisponible');
     const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
@@ -125,6 +161,10 @@ const depositarDinero = () => {
     $(() => $('#volverAlHome').on('click', volverAHome));
 }
 
+/**
+ * Se encarga de cargar todos los movimientos que ha realizado el usuario cada vez que se recarga la home
+ * @param {Object} usuarioEnUso Objeto que representa el usuario que tiene la sesión iniciada en ese momento
+ */
 const agregarMovimientos = usuarioEnUso => {
     const resumen = document.querySelector(`#ultimosMovimientos`);
     usuarioEnUso.movimientos.forEach( e => {
@@ -135,8 +175,8 @@ const agregarMovimientos = usuarioEnUso => {
 }
 
 /**
- * 
- * @param {*} usuarioEnUso 
+ * Se encarga de verificar si no hay movimientos recientes, en caso de que no haya muestra un mensaje de movimientos nulos
+ * @param {Object} usuarioEnUso Objeto que representa el usuario que tiene la sesión iniciada en ese momento
  */
 const mostrarNoHayMovimientos = usuarioEnUso => {
     const resumen = document.querySelector(`#ultimosMovimientos`);
@@ -148,7 +188,7 @@ const mostrarNoHayMovimientos = usuarioEnUso => {
 }
 
 /**
- * 
+ * Función que se encarga de cargar los datos almacenados en localStorage, y administra los eventos de depósito y transferencia
  */
 const iniciar = () => {
     GestionUsuarios.iniciar();
