@@ -99,11 +99,22 @@ class GestionUsuarios{
             const usuario = new Usuario(nuevoUsuario, email, password, cvu);
             GestionUsuarios.usuarios.push(usuario);
             GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
-            document.querySelector('.modal-usuario-creado').innerHTML = `Bienvenido/a ${nuevoUsuario}, esperamos poder brindarle la mejor experiencia.`;
-            document.querySelector('.registro-modal').click();
-            document.querySelector('.redireccion-index').addEventListener('click', () => {
-            window.location ="login.html"; 
-            });
+            Swal.fire({
+                title: '¡Felicitaciones!',
+                text: `Bienvenido/a ${nuevoUsuario}, esperamos poder brindarle la mejor experiencia.`,
+                imageUrl: '../assets/images/shaking-hands.jpg',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Two people shaking hands',
+                heightAuto: false,
+                showConfirmButton: true,
+                confirmButtonText: 'Ok',
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location ="login.html"; 
+                }
+            })
         }
     }
 }

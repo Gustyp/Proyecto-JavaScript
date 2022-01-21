@@ -32,9 +32,9 @@
             </div>
         </nav>
     </header>
-    <main class="h-100">
-        <div class="d-flex justify-content-center h-100">
-            <div class="card m-auto mx-3">
+    <main class="h-100 pt-5">
+        <div class="d-flex justify-content-center h-100 py-5">
+            <div class="card mx-3">
                 <div class="card-header">
                     <div class="d-flex justify-content-center">
                         <span>
@@ -77,49 +77,12 @@
             </div>
         </div>
     </main>
-    <!-- Boton para activar el modal de rechazo -->
-    <button type="button" class="btn btn-primary hidden modal-rechazo" data-bs-toggle="modal" data-bs-target="#mmodalRechazoRegistro"></button>
-    <!-- Modal de rechazo cuenta ya existen -->
-    <div class="modal fade" id="mmodalRechazoRegistro" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">¡Lo sentimos!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="my-5" id="modalRegistroRechazado"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Boton para activar el modal de éxito -->
-    <button type="button" class="btn btn-primary hidden registro-modal" data-bs-toggle="modal" data-bs-target="#registroModal"></button>
-    <!-- Modal de cuenta creada con éxito -->
-    <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title subtitle" id="exampleModalLabel">¡Bienvenido!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="modal-usuario-creado"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary redireccion-index">Aceptar</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Iconos -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../src/register.js"></script>
     <script src="../src/configuracionUsuarios.js"></script>
     <script src="../src/validacionesUsuario.js"></script>

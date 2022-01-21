@@ -33,12 +33,16 @@ class ValidacionUsuario{
      * @returns {Boolean} Se encarga de devolver false si encuentra coincidencia, o true si es un mail sin registrar
      */
     static esEmailUnico(mail){
-        const rechazoRegistro = document.querySelector('#modalRegistroRechazado');
-        const rechazoModal = document.querySelector('.modal-rechazo');
+        // const rechazoRegistro = document.querySelector('#modalRegistroRechazado');
+        // const rechazoModal = document.querySelector('.modal-rechazo');
         if (GestionUsuarios.usuarios.find(usuario => mail == usuario.mail)){
-            rechazoRegistro.innerHTML = 'El mail ya existe.';
-            rechazoModal.click();
-            return false; 
+            Swal.fire({
+                title: '¡Lo sentimos!',
+                text: "El mail ya se encuentra en uso.",
+                icon: 'warning',
+                heightAuto: false,
+            })
+            return false;
         }
         return true;
     }
@@ -49,11 +53,13 @@ class ValidacionUsuario{
      * @returns Devuelve false si encuentra coincidencia, o true si es un nombre de usuario sin registrar
      */
     static esUsuarioUnico(nuevoUsuario){
-        const rechazoRegistro = document.querySelector('#modalRegistroRechazado');
-        const rechazoModal = document.querySelector('.modal-rechazo');
         if(GestionUsuarios.usuarios.find(usuario => nuevoUsuario == usuario.usuario)){
-            rechazoRegistro.innerHTML = `El usuario ya existe.`;
-            rechazoModal.click();
+            Swal.fire({
+                title: '¡Lo sentimos!',
+                text: "El usuario ya existe.",
+                icon: 'warning',
+                heightAuto: false,
+            })
             return false;
         }
         return true;
