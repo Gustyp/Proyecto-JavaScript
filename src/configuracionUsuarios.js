@@ -52,6 +52,14 @@ class GestionUsuarios{
             console.log(`El usuario actual es ${datosUsuarioActual}`);
         }
     }
+
+    /**
+     * Se encarga de encontrar al usuario actual que tiene la sesión iniciada
+     * @returns Devuelve el usuario de la sesión actual
+     */
+    static detectarUsuarioActual(){
+        return GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    }
     
     /**
      * Guarda usuario en el localStorage y lo mantiene actualizado

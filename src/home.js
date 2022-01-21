@@ -63,7 +63,7 @@ const existeUsuario = destinatario => {
  * @returns {Boolean} Devuelve true en caso de que el usuario exista y el monto sea válido, en caso contrario devolverá false
  */
 const esUsuarioValido = (destinatario, dineroTransferencia) => {
-    const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     const usuarioExistente = existeUsuario(destinatario);
     const montoAceptado = esMontoValido(dineroTransferencia);
     if (usuarioExistente && montoAceptado){
@@ -93,7 +93,7 @@ const esUsuarioValido = (destinatario, dineroTransferencia) => {
  */
 const transferirAUsuario = e => {
     e.preventDefault();
-    const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     const data = new FormData(e.target);
     const dineroTransferencia = data.get(`transferencia`);
     const destinatario = data.get(`destinatario`);
@@ -115,7 +115,7 @@ const transferirAUsuario = e => {
  * Se encarga de crear el modal de transferencia de dinero, y administrar el evento para transferir a otra cuenta o volver a la home
  */
 const transferirDinero = () =>{
-    const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     console.log(usuarioEnUso);
     const saldoDisponible = document.querySelector('#saldoDisponible');
     console.log(`Transferencia de dinero`);
@@ -130,7 +130,7 @@ const transferirDinero = () =>{
  */
 const depositarEnCuenta = e => {
     e.preventDefault();
-    const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     const data = new FormData(e.target);
     const dineroDeposito = data.get(`transferencia`);
     const deposito = crearDeposito(dineroDeposito);
@@ -161,7 +161,7 @@ const depositarEnCuenta = e => {
  */
 const depositarDinero = () => {
     const saldoDisponible = document.querySelector('#saldoDisponible');
-    const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     console.log(usuarioEnUso);
     console.log(`Depósito de dinero`);
     crearModalDeposito();
@@ -217,7 +217,7 @@ const copiarCvu = cvu => {
 }
 
 const mostrarCvu = () => {
-    const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     Swal.fire({
         title: 'Su CVU:',
         icon: 'info',
@@ -245,7 +245,7 @@ const mostrarCvu = () => {
  */
 const iniciar = () => {
     GestionUsuarios.iniciar();
-    const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     saldoDisponible.innerHTML = `Saldo disponible: $${usuarioEnUso.saldo}`;
     console.log(usuarioEnUso.movimientos);
     mostrarNoHayMovimientos(usuarioEnUso);
