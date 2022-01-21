@@ -36,7 +36,7 @@ class GestionUsuarios{
     /**
      * Se encarga de cargar la data del localStorage
      */
-    static iniciar(){
+    static iniciar = () => {
         const datosAlmacenados = localStorage.getItem('Usuarios');
         const datosUsuarioActual = localStorage.getItem('Usuario-Actual');
         if(datosAlmacenados){
@@ -57,23 +57,19 @@ class GestionUsuarios{
      * Se encarga de encontrar al usuario actual que tiene la sesión iniciada
      * @returns Devuelve el usuario de la sesión actual
      */
-    static detectarUsuarioActual(){
-        return GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
-    }
+    static detectarUsuarioActual = () => GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
     
     /**
      * Guarda usuario en el localStorage y lo mantiene actualizado
      * @param {Array} usuarios Array de los usuarios almacenados en el localStorage
      */
-    static guardarUsuario(usuarios){
-        localStorage.setItem('Usuarios', JSON.stringify(usuarios));
-    };
+    static guardarUsuario = usuarios => localStorage.setItem('Usuarios', JSON.stringify(usuarios));
 
     /**
      * Crea un cvu único para el usuario
      * @returns Devuelve el cvu creado
      */
-    static crearCvu(){
+    static crearCvu = () => {
         const primeraParteCVU = Math.round(Math.random()*99999999999);
         const segundaParteCVU = Math.round(Math.random()*99999999999);
         const cvuCompleto = primeraParteCVU.toString() + segundaParteCVU.toString();
@@ -87,7 +83,7 @@ class GestionUsuarios{
      * @param {String} password Contraseña del usuario a ser creado
      * @param {String} rePassword Confirmación de la contraseña del usuario a ser creado
      */
-    static crearNuevoUsuario(nuevoUsuario, email, password, rePassword) {
+    static crearNuevoUsuario = (nuevoUsuario, email, password, rePassword) => {
         const minCaracteresUsuario = 3;
         const maxCaracteresUsuario = 15;
         const minCaracteresContrasenia = 8;

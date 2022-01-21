@@ -7,7 +7,7 @@ class ControlSesion{
      * @param {String} usuario Nombre de usuario
      * @param {String} password Contraseña del usuario
      */
-    static iniciarSesion(usuario, password){
+    static iniciarSesion = (usuario, password) => {
         let loginExitoso = GestionUsuarios.usuarios.find(Usuario => (Usuario.usuario == usuario)  && (password === Usuario.password));
         if(loginExitoso){
             GestionUsuarios.usuarioActual = loginExitoso;
@@ -28,7 +28,7 @@ class ControlSesion{
     /**
      * Se encarga de simular el cierre de sesión
      */
-    static cerrarSesion(){
+    static cerrarSesion = () => {
         GestionUsuarios.usuarioActual = null;
         localStorage.removeItem(`Usuario-Actual`)
         window.location.href="./index.html";

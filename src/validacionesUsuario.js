@@ -8,7 +8,7 @@ class ValidacionUsuario{
      * @param {String} mensaje Mensaje que informa acerca del error ocurrido
      * @returns 
      */
-    static mostrarError(input, mensaje){
+    static mostrarError = (input, mensaje) => {
         const formControl = input.parentElement;
         formControl.className = "input-group mb-3 error";
         const small = formControl.querySelector('small');
@@ -20,7 +20,7 @@ class ValidacionUsuario{
      * Se encarga de mostrar el error al cambiar la visibilidad de la clase
      * @param {String} input 
      */
-    static ocultarError(input){
+    static ocultarError = input => {
         const formControl = input.parentElement;
         formControl.className = "input-group mb-3";
         const small = formControl.querySelector('small');
@@ -32,7 +32,7 @@ class ValidacionUsuario{
      * @param {String} mail Mail del usuario que está por ser creado
      * @returns {Boolean} Se encarga de devolver false si encuentra coincidencia, o true si es un mail sin registrar
      */
-    static esEmailUnico(mail){
+    static esEmailUnico = mail => {
         // const rechazoRegistro = document.querySelector('#modalRegistroRechazado');
         // const rechazoModal = document.querySelector('.modal-rechazo');
         if (GestionUsuarios.usuarios.find(usuario => mail == usuario.mail)){
@@ -52,7 +52,7 @@ class ValidacionUsuario{
      * @param {String} nuevoUsuario Nombre de usuario del usuario que está por ser creado
      * @returns Devuelve false si encuentra coincidencia, o true si es un nombre de usuario sin registrar
      */
-    static esUsuarioUnico(nuevoUsuario){
+    static esUsuarioUnico = nuevoUsuario => {
         if(GestionUsuarios.usuarios.find(usuario => nuevoUsuario == usuario.usuario)){
             Swal.fire({
                 title: '¡Lo sentimos!',
@@ -75,7 +75,7 @@ class ValidacionUsuario{
      * @param {Number} maxContrasenia Cantidad mádxima de carácteres permitidos al momento de crear la contraseña
      * @returns Devuelve false en caso de que alguno de los datos ingresados no cumpla con el márgen de carácteres permitidos, en caso de que esté todo ok devolverá true
      */
-    static verificarLongitud(nuevoUsuario, minUsuario, maxUsuario, password, minContrasenia, maxContrasenia){
+    static verificarLongitud = (nuevoUsuario, minUsuario, maxUsuario, password, minContrasenia, maxContrasenia) => {
         const formulario = document.querySelector("#registerForm");
         const formControlUsuario = formulario.registerUser;
         const formControlPassword = formulario.registerPassword;
@@ -110,7 +110,7 @@ class ValidacionUsuario{
      * @param {String} rePassword Contraseña ingresada por el usuario para verificar
      * @returns Sólo devolverá true en caso de que las contraseñas coincidan, de lo contrario será false
      */
-    static verificarContraseniasCoinciden(password, rePassword){
+    static verificarContraseniasCoinciden = (password, rePassword) => {
         const mensajeErrorContraseniasNoCoinciden = "Las contraseñas no coinciden";
         const formulario = document.querySelector("#registerForm");
         const formControl = formulario.sameRegisterPassword;
@@ -127,7 +127,7 @@ class ValidacionUsuario{
      * @param {String} email Email ingresado por el usuario al momento de crear la cuenta
      * @returns Devuelve false en caso de que el mail ingresado no posea un formato válido, en caso de que esté todo okay devolverá true
      */
-    static verificarEmail(email){
+    static verificarEmail = email => {
         const mensajeErrorEmailInvalido = "No es un Email válido";
         const emailValido = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const formulario = document.querySelector("#registerForm");

@@ -55,7 +55,7 @@ class TransferenciaRecibida{
  * @param {Number} monto Monto del depósito
  * @returns {Object} Devuelve el depósito creado
  */
-const crearDeposito = (monto) => {
+const crearDeposito = monto => {
     const tipo = `Depósito`
     const deposito = new Deposito(monto, tipo);
     return deposito;
