@@ -103,11 +103,20 @@ const transferirAUsuario = e => {
         console.log(transferencia);
         usuarioEnUso.movimientos.push(transferencia);
         console.log(usuarioEnUso.movimientos);
-        document.querySelector(`.operacion-realizada-modal`).click();
-        document.querySelector('#textoOperacionRealizada').innerHTML = `¡Operación realizada con éxito!`;
-        usuarioEnUso.saldo-= Number(dineroTransferencia);
-        GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
-        $('#transaccionRealizada').on('click', volverAHome);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '¡Operación realizada con éxito!',
+            showConfirmButton: true,
+            confirmButtonText: 'Cerrar',
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                usuarioEnUso.saldo-= Number(dineroTransferencia);
+                GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
+                volverAHome();
+            }
+        })
     }
 }
 
