@@ -12,12 +12,16 @@ class ControlSesion{
         if(loginExitoso){
             GestionUsuarios.usuarioActual = loginExitoso;
             localStorage.setItem('Usuario-Actual', GestionUsuarios.usuarioActual.usuario);            
-            localStorage.setItem('Usuarios', JSON.stringify(GestionUsuarios.usuarios));            
+            GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);            
             window.location.href="./home.html";  
         } 
         else{
-            document.querySelector('#loginRechazadoTexto').innerHTML = `Usuario y/o contraseñas inválidos, por favor intente otra vez.`;
-            document.querySelector(`.login-rechazado-modal`).click();
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'Usuario y/o contraseñas inválidos, por favor intente otra vez.',
+                heightAuto: false,
+            })
         }
     }
 

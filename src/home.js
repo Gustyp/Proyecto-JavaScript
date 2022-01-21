@@ -82,7 +82,7 @@ const esUsuarioValido = (destinatario, dineroTransferencia) => {
         console.log(`La transferencia que recibirá ${usuarioExistente.usuario} es de $${dineroTransferencia}`);
         console.log(dineroTransferencia);
         usuarioExistente.movimientos.push(transferenciaRecibida);
-        localStorage.setItem('Usuarios', JSON.stringify(GestionUsuarios.usuarios));
+        GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
         return true;
     }
     return false;
@@ -106,7 +106,7 @@ const transferirAUsuario = e => {
         document.querySelector(`.operacion-realizada-modal`).click();
         document.querySelector('#textoOperacionRealizada').innerHTML = `¡Operación realizada con éxito!`;
         usuarioEnUso.saldo-= Number(dineroTransferencia);
-        localStorage.setItem('Usuarios', JSON.stringify(GestionUsuarios.usuarios));
+        GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
         $(() => $('#transaccionRealizada').on('click', volverAHome));
     }
 }
@@ -139,11 +139,20 @@ const depositarEnCuenta = e => {
     if (esDepositoValido(dineroDeposito)){
         usuarioEnUso.movimientos.push(deposito);
         console.log(usuarioEnUso.movimientos);
-        document.querySelector(`.operacion-realizada-modal`).click();
-        document.querySelector('#textoOperacionRealizada').innerHTML = `¡Operación realizada con éxito!`;
-        usuarioEnUso.saldo+= Number(dineroDeposito);
-        localStorage.setItem('Usuarios', JSON.stringify(GestionUsuarios.usuarios));
-        $(() => $('#transaccionRealizada').on('click', volverAHome));
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '¡Operación realizada con éxito!',
+            showConfirmButton: true,
+            confirmButtonText: 'Cerrar',
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                usuarioEnUso.saldo+= Number(dineroDeposito);
+                GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
+                volverAHome();
+            }
+        })
     }
 }
 
