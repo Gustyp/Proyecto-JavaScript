@@ -44,7 +44,7 @@ class GestionUsuarios{
             console.log(`El array es: ${GestionUsuarios.usuarios}`);
             // Probando que se almacenaron los usuarios en el array correctamente
             GestionUsuarios.usuarios.forEach((Usuario) =>{
-            console.log(Usuario)
+            console.table(Usuario)
             })
         }
         if(datosUsuarioActual){
