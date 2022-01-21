@@ -107,7 +107,7 @@ const transferirAUsuario = e => {
         document.querySelector('#textoOperacionRealizada').innerHTML = `¡Operación realizada con éxito!`;
         usuarioEnUso.saldo-= Number(dineroTransferencia);
         GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
-        $(() => $('#transaccionRealizada').on('click', volverAHome));
+        $('#transaccionRealizada').on('click', volverAHome);
     }
 }
 
@@ -121,8 +121,8 @@ const transferirDinero = () =>{
     console.log(`Transferencia de dinero`);
     crearModalTransferencia();
     saldoDisponible.innerHTML = `Saldo disponible: $${usuarioEnUso.saldo}`;
-    $(() => $('#volverAlHome').on('click', volverAHome));  
-    $(() => $('#transaccion').on('submit', transferirAUsuario));    
+    $('#volverAlHome').on('click', volverAHome);  
+    $('#transaccion').on('submit', transferirAUsuario);    
 }
 
 /**
@@ -166,8 +166,8 @@ const depositarDinero = () => {
     console.log(`Depósito de dinero`);
     crearModalDeposito();
     saldoDisponible.innerHTML = `Saldo disponible: $${usuarioEnUso.saldo}`;
-    $(() => $('#transaccion').on('submit', depositarEnCuenta));
-    $(() => $('#volverAlHome').on('click', volverAHome));
+    $('#transaccion').on('submit', depositarEnCuenta);
+    $('#volverAlHome').on('click', volverAHome);
 }
 
 /**
@@ -196,6 +196,50 @@ const mostrarNoHayMovimientos = usuarioEnUso => {
     }
 }
 
+const copiarAlPortapapeles = e => {
+    e.clipboardData.setData('text/plain', 'Hello, world!');
+    e.preventDefault();
+}
+
+const copiarCvu = cvu => {
+    navigator.clipboard.writeText(cvu);
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-right',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+    })    
+    Toast.fire({
+    icon: 'success',
+    title: 'Copiado con éxito al portapapeles'
+    })
+}
+
+const mostrarCvu = () => {
+    const usuarioEnUso = GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    Swal.fire({
+        title: 'Su CVU:',
+        icon: 'info',
+        text: `${usuarioEnUso.cvu}`,
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        },
+        showCancelButton: true,
+        confirmButtonColor: '#00CC99',
+        cancelButtonColor: '#6600FF',
+        confirmButtonText: 'Copiar',
+        cancelButtonText: 'Cerrar',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            copiarCvu(usuarioEnUso.cvu);
+        }
+    })
+}
+
 /**
  * Función que se encarga de cargar los datos almacenados en localStorage, y administra los eventos de depósito y transferencia
  */
@@ -206,8 +250,10 @@ const iniciar = () => {
     console.log(usuarioEnUso.movimientos);
     mostrarNoHayMovimientos(usuarioEnUso);
     agregarMovimientos(usuarioEnUso);
-    $(() => $('#ingresoDinero').on('click', depositarDinero));
-    $(() => $('#envioDinero').on('click', transferirDinero));
+    $('#ingresoDinero').on('click', depositarDinero);
+    $('#envioDinero').on('click', transferirDinero);
+    $('#cvuUsuario').on('click', mostrarCvu);
+
 }
 
 // Este evento carga la información desde el localStorage
