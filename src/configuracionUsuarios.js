@@ -84,7 +84,7 @@ class GestionUsuarios{
      * @param {String} password Contraseña del usuario a ser creado
      * @param {String} rePassword Confirmación de la contraseña del usuario a ser creado
      */
-    static crearNuevoUsuario = (nuevoUsuario, email, password, rePassword) => {
+    static crearNuevoUsuario = (nuevoUsuario, email, password, rePassword, checkbox) => {
         const minCaracteresUsuario = 3;
         const maxCaracteresUsuario = 15;
         const minCaracteresContrasenia = 8;
@@ -95,7 +95,8 @@ class GestionUsuarios{
         const terceraValidacion = ValidacionUsuario.verificarContraseniasCoinciden(password, rePassword);
         const cuartaValidacion = ValidacionUsuario.esEmailUnico(email);
         const quintaValidacion = ValidacionUsuario.esUsuarioUnico(nuevoUsuario);
-        arrayValidaciones.push(primerValidacion, segundaValidacion, terceraValidacion, cuartaValidacion, quintaValidacion);
+        const sextaValidacion = ValidacionUsuario.aceptaBasesYCondiciones(checkbox);
+        arrayValidaciones.push(primerValidacion, segundaValidacion, terceraValidacion, cuartaValidacion, quintaValidacion, sextaValidacion);
         const RegistroExitoso = arrayValidaciones.every(e => e);
         // console.log(arrayValidaciones);
         // console.log(RegistroExitoso);

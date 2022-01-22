@@ -8,9 +8,10 @@ const obtenerDatosFormulario = e => {
     const email = data.get('mail');
     const password = data.get('password');
     const rePassword = data.get('repassword');
+    const checkbox = data.get(`checkAceptar`);
 
-    console.log(`${data}, ${usuario}, ${email}, ${password}, ${rePassword}`);
-    GestionUsuarios.crearNuevoUsuario(usuario, email, password, rePassword);
+    console.log(`${data}, ${usuario}, ${email}, ${password}, ${rePassword}, ${checkbox}`);
+    GestionUsuarios.crearNuevoUsuario(usuario, email, password, rePassword, checkbox);
 }
 
 /**
