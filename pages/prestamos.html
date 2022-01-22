@@ -46,21 +46,49 @@
         <main class="container-fluid">
             <div class="container-fluid">
                 <div class="row pt-5">
-                    <div class="col-md-10 m-auto">
+                    <div class="col-sm-11 m-auto">
                         <div class="card">
                             <div class="card-header">
                                 <h2 class="titulo-home m-auto">Préstamos</h2>
                             </div>
                             <div class="card-body">
                                 <p>
-                                    Para poder solicitar uno de nuestros exclusivos préstamos, tenga en cuenta de que únicamente aceptamos solicitudes con un <strong>monto máximo del 50% y un mínimo del 35% de su salario </strong>. La taza de interés depende del número de cuotas deseadas. 
+                                    Para poder solicitar uno de nuestros exclusivos préstamos, tenga en cuenta de que únicamente aceptamos solicitudes con un <strong>monto máximo del 50% y un mínimo del 35% de su salario </strong>. 
                                 </p>
+                                <p>La taza de interés depende del número de cuotas deseadas. </p>
                                 <p>
-                                    Sólo podemos otorgarle un crédito a la vez.
+                                    Sólo podemos otorgarle un préstamo a la vez.
                                 </p>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-11 col-md-6 m-auto">
+                        <div class="card m-auto">
+                            <div class="card-header">
+                                <h2 class="titulo-home m-auto">Solicitud</h2>
+                            </div>
+                            <div class="card-body mb-3">
+                                <form id="creditForm" class="d-flex justify-content-center align-items-center align-content-center flex-column" action=""> 
+                                    <div class="my-3 d-flex justify-content-center align-items-start flex-column gap-3">
+                                        <label class="align-self-start" for="credit-amount">Monto a Solicitar:</label>
+                                        <input type="number" class="input__reception" name="credit-amount" id="credit-amount" required="">
+                                    </div>
+                                    <div class="my-3 d-flex  justify-content-center align-items-start flex-column gap-3">
+                                        <label class="align-self-start  text" for="credit-dues">Número de cuotas:</label>
+                                        <input type="number" class="input__reception" name="credit-dues" id="credit-dues" required="">
+                                    </div>
+                                    <div class="d-flex justify-content-center align-content-center align-items-center flex-column mt-3 gap-5">
+                                        <button type="submit" id="credit-resume-btn" class="btn btn-primary text">Solicitar</button>
+                                    </div>   
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 img-box m-auto">
+                        <img src="../assets/svg/personal-finance.svg" alt="" class="img-fluid">
+                    </div> 
                 </div>
             </div>
         </main>
