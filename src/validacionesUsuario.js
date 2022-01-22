@@ -140,6 +140,11 @@ class ValidacionUsuario{
         return true;
     }
 
+    /**
+     * Se encarga de verificar que el usuario acepte las bases y condiciones al momento de crear la cuenta
+     * @param {Boolean} checkbox Valor del checkbox del formulario de registro
+     * @returns Devuelve false en caso de que el checkbox no haya sido marcado, en caso de que esté marcado devolverá true
+     */
     static aceptaBasesYCondiciones = checkbox => {
         const mensajeErrorNoAceptaBasesYCondiciones = `Debe aceptar las bases y condiciones`;
         const formulario = document.querySelector("#registerForm");
