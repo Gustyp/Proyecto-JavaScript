@@ -81,7 +81,7 @@ const esUsuarioValido = (destinatario, dineroTransferencia) => {
         const transferenciaRecibida = crearTransferenciaRecibida(dineroTransferencia, usuarioEnUso.usuario);
         console.log(`La transferencia que recibirá ${usuarioExistente.usuario} es de $${dineroTransferencia}`);
         console.log(dineroTransferencia);
-        usuarioExistente.movimientos.push(transferenciaRecibida);
+        usuarioExistente.movimientos.unshift(transferenciaRecibida);
         GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
         return true;
     }
@@ -101,17 +101,18 @@ const transferirAUsuario = e => {
         const transferencia = crearTransferencia(dineroTransferencia, destinatario);
         console.log(`La transferencia es de ${dineroTransferencia}`);
         console.log(transferencia);
-        usuarioEnUso.movimientos.push(transferencia);
+        usuarioEnUso.movimientos.unshift(transferencia);
         console.log(usuarioEnUso.movimientos);
         Swal.fire({
             position: 'center',
             icon: 'success',
+            timer: 2000,
             title: '¡Operación realizada con éxito!',
-            showConfirmButton: true,
-            confirmButtonText: 'Cerrar',
-            allowOutsideClick: false
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            heightAuto: false
         }).then((result) => {
-            if (result.isConfirmed) {
+            if (result.dismiss === Swal.DismissReason.timer) {
                 usuarioEnUso.saldo-= Number(dineroTransferencia);
                 GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
                 volverAHome();
@@ -146,17 +147,19 @@ const depositarEnCuenta = e => {
     console.log(`El depósito es de ${dineroDeposito}`);
     console.log(deposito);
     if (esDepositoValido(dineroDeposito)){
-        usuarioEnUso.movimientos.push(deposito);
+        usuarioEnUso.movimientos.unshift(deposito);
         console.log(usuarioEnUso.movimientos);
         Swal.fire({
             position: 'center',
             icon: 'success',
+            timer: 2000,
             title: '¡Operación realizada con éxito!',
-            showConfirmButton: true,
-            confirmButtonText: 'Cerrar',
-            allowOutsideClick: false
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            heightAuto: false,
         }).then((result) => {
-            if (result.isConfirmed) {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                // console.log('I was closed by the timer');
                 usuarioEnUso.saldo+= Number(dineroDeposito);
                 GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
                 volverAHome();
@@ -203,11 +206,6 @@ const mostrarNoHayMovimientos = usuarioEnUso => {
         sinMovimientos.innerHTML = `No se registraron movimientos hasta el momento.`
         resumen.appendChild(sinMovimientos);
     }
-}
-
-const copiarAlPortapapeles = e => {
-    e.clipboardData.setData('text/plain', 'Hello, world!');
-    e.preventDefault();
 }
 
 const copiarCvu = cvu => {
