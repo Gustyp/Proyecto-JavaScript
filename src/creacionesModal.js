@@ -12,8 +12,8 @@ const crearNuevoModal = () => {
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <form id="transaccion">
-                    <div class="modal-header">
-                        <p class="modal-title h4" id="tituloModal"></p>
+                    <div class="modal-header card m-0">
+                        <p class="modal-title titulo-home h4" id="tituloModal"></p>
                     </div>
                     <div class="modal-body">
                     </div>

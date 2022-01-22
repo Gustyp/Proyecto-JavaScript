@@ -11285,39 +11285,77 @@ a {
   padding-left: 40px;
   background-color: rgba(0, 204, 153, 0.03);
 }
-
-.card--prestamo {
+.home-body .card--prestamo {
   min-height: 220px;
   margin: auto;
   min-width: 235px;
 }
-.card--prestamo .card-header h3, .card--prestamo .card-header .h3 {
+.home-body .card--prestamo .card-header h3, .home-body .card--prestamo .card-header .h3 {
   color: white;
 }
-.card--prestamo .input-group span {
+.home-body .card--prestamo .input-group span {
   width: 50px;
   background-color: #43e995;
   color: black;
   border: 0 !important;
 }
-.card--prestamo .input-group small, .card--prestamo .input-group .small {
+.home-body .card--prestamo .input-group small, .home-body .card--prestamo .input-group .small {
   font-size: 0.8em;
   color: #00CC99;
   left: 0;
   bottom: 1em;
   visibility: hidden;
 }
-.card--prestamo .input-group.error small, .card--prestamo .input-group.error .small {
+.home-body .card--prestamo .input-group.error small, .home-body .card--prestamo .input-group.error .small {
   visibility: visible;
 }
-.card--prestamo .prestamo-btn {
+.home-body .card--prestamo .prestamo-btn {
   color: black;
   background-color: #43e995;
   width: 100px;
 }
-.card--prestamo .prestamo-btn:hover {
+.home-body .card--prestamo .prestamo-btn:hover {
   color: black;
   background-color: white;
+}
+@media (min-width: 992px) {
+  .home-body footer {
+    display: none;
+  }
+}
+.home-body footer .nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  display: flex;
+  overflow-x: auto;
+}
+.home-body footer .nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: sans-serif;
+  color: #444444;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.1s ease-in-out;
+}
+.home-body footer .nav__link:hover {
+  background-color: #eeeeee;
+}
+.home-body footer .nav__link--active {
+  color: #00CC99;
+}
+.home-body footer .nav__icon {
+  font-size: 18px;
 }
 
 .login-body .container-fluid, .login-body .container-sm, .login-body .container-md, .login-body .container-lg, .login-body .container-xl, .login-body .container-xxl {

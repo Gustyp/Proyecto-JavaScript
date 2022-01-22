@@ -74,7 +74,6 @@ const depositarEnCuenta = e => {
             heightAuto: false,
         }).then((result) => {
             if (result.dismiss === Swal.DismissReason.timer) {
-                // console.log('I was closed by the timer');
                 usuarioEnUso.saldo+= Number(dineroDeposito);
                 GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
                 volverAHome();

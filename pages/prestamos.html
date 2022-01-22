@@ -45,7 +45,7 @@
         </header>
         <main class="container-fluid">
             <div class="container-fluid">
-                <div class="row pt-5">
+                <div class="row pt-3">
                     <div class="col-sm-11 m-auto">
                         <div class="card">
                             <div class="card-header">
@@ -77,11 +77,17 @@
                                         <small class="col-12 mt-1"><p></p></small>
                                     </div>
                                     <div class="input-group">
-                                        <span class="input-group-text"><ion-icon size="large" name="alert-circle-outline"></ion-icon></span>
+                                        <span class="input-group-text"><ion-icon size="large" name="help-outline"></ion-icon></span>
                                         <input id="cantidadCuotas" type="number" name="cuotas" class="form-control" placeholder="Número de cuotas">
                                         <small class="col-12 mt-1"><p></p></small>
                                     </div> 
+                                    <div class="input-group">
+                                        <span class="input-group-text"><ion-icon size="large" name="alert-circle-outline"></ion-icon></span>
+                                        <input id="montoADevolver" type="text" name="cuotas" class="form-control" placeholder="Monto a devolver" disabled>
+                                        <small class="col-12 mt-1"><p></p></small>
+                                    </div> 
                                     <div class="d-flex justify-content-end pt-4 gap-3">
+                                        <button type="button" id="calcularPrestamo" class="btn btn-primary">Calcular</button>
                                         <button type="submit" class="btn btn-primary">Solicitar</button>
                                     </div>
                                 </form>
@@ -94,9 +100,30 @@
                 </div>
             </div>
         </main>
+        <footer>
+            <nav class="nav">
+                <a href="home.html" class="nav__link">
+                    <ion-icon size="large" name="home-outline"></ion-icon>
+                    <span>Home</span>
+                </a>
+                <a href="cotizaciones.html" class="nav__link">
+                    <ion-icon size="large" name="cash-outline"></ion-icon>
+                    <span>Cotizaciones</span>
+                </a>
+                <a href="inversiones.html" class="nav__link">
+                    <ion-icon size="large" name="trending-up-outline"></ion-icon>
+                    <span>Inversiones</span>
+                </a>
+                <a href="prestamos.html" class="nav__link nav__link--active">
+                    <ion-icon size="large" name="wallet-outline"></ion-icon>
+                    <span>Solicitar préstamo</span>
+                </a>
+            </nav>
+        </footer>
     </div> 
+    <!-- Iconos -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

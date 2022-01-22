@@ -38,6 +38,8 @@ class ValidacionOperacion{
         return true;
     }
 
+    static verificarPrestamoValido = (montoPrestamo, cantidadCuotas) => ValidacionOperacion.esMontoValido(montoPrestamo) && ValidacionOperacion.sonCuotasValidas(cantidadCuotas);
+
     /**
      * Se encarga de verificar que la solicitud de depósito sea válida
      * @param {Number} dineroDeposito Monto del depósito a realizarse
