@@ -18,7 +18,7 @@
             <li class="py-2 links"><a href="home.html"><p>Posición consolidada</p></a></li>
             <li class="py-2 links"><a href="cotizaciones.html"><p>Cotizaciones</p></a></li>
             <li class="py-2 links"><a href=""><p>Inversiones</p></a></li>
-            <li class="py-2 links links--selected"><a href=""><p class="selected">Solicitar préstamo</p></a></li>
+            <li class="py-2 links links--selected"><a href="#"><p class="selected">Solicitar préstamo</p></a></li>
         </ul>
     </section>
     <div class="w-100 h-100">
@@ -64,24 +64,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-sm-11 col-md-6 m-auto">
-                        <div class="card m-auto">
+                    <div class="col-12 col-sm-11 col-md-4 m-auto">
+                        <div class="card card--prestamo m-auto">
                             <div class="card-header">
                                 <h2 class="titulo-home m-auto">Solicitud</h2>
                             </div>
-                            <div class="card-body mb-3">
-                                <form id="creditForm" class="d-flex justify-content-center align-items-center align-content-center flex-column" action=""> 
-                                    <div class="my-3 d-flex justify-content-center align-items-start flex-column gap-3">
-                                        <label class="align-self-start" for="credit-amount">Monto a Solicitar:</label>
-                                        <input type="number" class="input__reception" name="credit-amount" id="credit-amount" required="">
+                            <div class="card-body mt-3">
+                                <form id="creditForm">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><ion-icon size="large" name="cash-outline"></ion-icon></span>
+                                        <input id="montoPrestamo" type="number" name="monto" class="form-control" placeholder="Monto a solicitar">
+                                        <small class="col-12 mt-1"><p></p></small>
                                     </div>
-                                    <div class="my-3 d-flex  justify-content-center align-items-start flex-column gap-3">
-                                        <label class="align-self-start  text" for="credit-dues">Número de cuotas:</label>
-                                        <input type="number" class="input__reception" name="credit-dues" id="credit-dues" required="">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><ion-icon size="large" name="alert-circle-outline"></ion-icon></span>
+                                        <input id="cantidadCuotas" type="number" name="cuotas" class="form-control" placeholder="Número de cuotas">
+                                        <small class="col-12 mt-1"><p></p></small>
+                                    </div> 
+                                    <div class="d-flex justify-content-end pt-4 gap-3">
+                                        <button type="submit" class="btn btn-primary">Solicitar</button>
                                     </div>
-                                    <div class="d-flex justify-content-center align-content-center align-items-center flex-column mt-3 gap-5">
-                                        <button type="submit" id="credit-resume-btn" class="btn btn-primary text">Solicitar</button>
-                                    </div>   
                                 </form>
                             </div>
                         </div>
@@ -93,7 +95,14 @@
             </div>
         </main>
     </div> 
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../src/validacionesOperacion.js"></script>
+    <script src="../src/configuracionUsuarios.js"></script>
+    <script src="../src/operaciones.js"></script>
+    <script src="../src/prestamos.js"></script>
 </body>
 </html>

@@ -51,6 +51,25 @@ class TransferenciaRecibida{
 }
 
 /**
+ * Clase que simuula una solicitud de préstamo en la cuenta del usuario
+ */
+class Prestamo{
+    /**
+     * 
+     * @param {Number} monto Monto solicitado en el préstamo
+     * @param {String} tipo Tipo de operación que ha realizado el usuario
+     * @param {Number} cuotas Cantidad de cuotas solicitadas en el préstamo
+     */
+    constructor(monto, tipo, cuotas){
+        this.monto = monto;
+        this.tipo = tipo;
+        this.cuotas = cuotas;
+        this.descripcion = `- Se ha solicitado un préstamo de $${this.monto} a devolver en ${this.cuotas} cuotas.`
+    }
+}
+
+
+/**
  * 
  * @param {Number} monto Monto del depósito
  * @returns {Object} Devuelve el depósito creado
@@ -82,4 +101,10 @@ const crearTransferenciaRecibida = (monto, remitente) => {
     const tipo = `Transferencia recibida`;
     const transferencia = new TransferenciaRecibida(monto, tipo, remitente);
     return transferencia;
+}
+
+const crearPrestamo = (monto, cuotas) => {
+    const tipo = `Préstamo`;
+    const prestamo = new Prestamo(monto, tipo, cuotas);
+    return prestamo;
 }

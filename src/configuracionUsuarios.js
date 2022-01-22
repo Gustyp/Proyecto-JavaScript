@@ -14,6 +14,7 @@ class Usuario{
         this.mail = email;
         this.password = password;
         this.saldo = Number(Math.round(Math.random()*99999));
+        this.prestamoSolicitado = false;
         this.cvu = cvu;
         this.movimientos = [];
     }
