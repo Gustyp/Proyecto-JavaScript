@@ -1,3 +1,6 @@
+/**
+ * Se encarga de mostrar en pantalla mediante un input el valor calculado de la solicitud de préstamo solicitada
+ */
 const mostrarMontoADevolver = () => {
     const inputMonto = document.querySelector(`#montoPrestamo`);
     const inputCuotas = document.querySelector(`#cantidadCuotas`);
@@ -8,15 +11,13 @@ const mostrarMontoADevolver = () => {
     const montoAcumuladoConInteres = ((inputMonto.value * interesAcumulado) / 100);
     const montoTotalADevolver = (Number(inputMonto.value) + montoAcumuladoConInteres);
     inputTotalADevolver.value = `$ ${montoTotalADevolver}`;
-
-    // console.log(`El monto ingresado es de $${inputMonto.value}`);
-    // console.log(`La cantidad de cuotas ingresadas es de ${inputCuotas.value}`);
-    // console.log(`El interés acumulado es de ${interesAcumulado}%`);
-    // console.log(`El monto acumulado extra es de $${montoAcumuladoConInteres}`);
-    // console.log(`El monto total a devolver es de $${montoTotalADevolver}`);
-    // console.log(inputTotalADevolver.value);
 }
 
+/**
+ * Se encarga de simular la solicitud de préstamo en caso de que los datos ingresados sean válidos, solamente permitido uno por usuario
+ * @param {Number} montoPrestamo Monto ingresado por el usuario en la solicitud
+ * @param {Number} cantidadCuotas Cantidad de cuotas ingresadas por el usuario en la solicitud
+ */
 const solicitarPrestamo = (montoPrestamo, cantidadCuotas) => {
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     const esPrestamoValido = ValidacionOperacion.verificarPrestamoValido(montoPrestamo, cantidadCuotas);
@@ -53,7 +54,7 @@ const solicitarPrestamo = (montoPrestamo, cantidadCuotas) => {
 }
 
 /**
- * Función que se encarga de obtener los datos del formulario de login
+ * Función que se encarga de obtener los datos del formulario de solicitud de préstamo
  */
 const obtenerDatosFormulario = e => {
     e.preventDefault();
@@ -68,7 +69,7 @@ const obtenerDatosFormulario = e => {
  */
 const iniciar = () => {
     GestionUsuarios.iniciar();
-    // Evento que se encarga de otener los datos del formulario de login al presionar el botón Enviar
+    // Evento que se encarga de otener los datos del formulario de solicitud de préstamo
     $('#creditForm').on('submit', obtenerDatosFormulario); 
     $('#calcularPrestamo').on('click', mostrarMontoADevolver);
 }

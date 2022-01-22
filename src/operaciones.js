@@ -70,7 +70,7 @@ class Prestamo{
 
 
 /**
- * 
+ * Se encarga de crear el objeto Deposito
  * @param {Number} monto Monto del depósito
  * @returns {Object} Devuelve el depósito creado
  */
@@ -81,7 +81,7 @@ const crearDeposito = monto => {
 }
 
 /**
- * 
+ * Se encarga de crear el objeto Transferencia
  * @param {Number} monto Monto de la transferencia 
  * @returns {Object} Devuelve la transferencia creada
  */
@@ -92,7 +92,7 @@ const crearTransferencia = (monto, destinatario) => {
 }
 
 /**
- * 
+ * Se encarga de crear el objeto TransferenciaRecibida
  * @param {Number} monto Monto de la transferencia
  * @param {String} remitente Remitente quién envia la transferencia
  * @returns {Object} Devuelve la transferencia recibida creada
@@ -103,6 +103,12 @@ const crearTransferenciaRecibida = (monto, remitente) => {
     return transferencia;
 }
 
+/**
+ * Se encarga de crear el objeto Prestamo
+ * @param {Number} monto Monto del préstamo
+ * @param {Number} cuotas Cantidad de cuotas del préstamo
+ * @returns {Object} Devuelve el préstamo creado
+ */
 const crearPrestamo = (monto, cuotas) => {
     const tipo = `Préstamo`;
     const prestamo = new Prestamo(monto, tipo, cuotas);

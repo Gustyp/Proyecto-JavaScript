@@ -38,6 +38,12 @@ class ValidacionOperacion{
         return true;
     }
 
+    /**
+     * Se encarga de verificar que la solicut de préstamo sea válida
+     * @param {Number} montoPrestamo Monto del préstamo a solicitar
+     * @param {Number} cantidadCuotas Cantidad de cuotas del préstamo a solicitar
+     * @returns 
+     */
     static verificarPrestamoValido = (montoPrestamo, cantidadCuotas) => ValidacionOperacion.esMontoValido(montoPrestamo) && ValidacionOperacion.sonCuotasValidas(cantidadCuotas);
 
     /**
