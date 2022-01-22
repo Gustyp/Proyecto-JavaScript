@@ -11340,6 +11340,11 @@ a {
   width: 400px;
   background-color: rgba(0, 0, 0, 0.5);
 }
+@media (max-width: 767.98px) {
+  .login-body .card {
+    height: 345px;
+  }
+}
 .login-body .card-header h3, .login-body .card-header .h3 {
   color: white;
 }

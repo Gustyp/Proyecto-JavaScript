@@ -7,8 +7,14 @@ class ControlSesion{
      * @param {String} usuario Nombre de usuario
      * @param {String} password Contraseña del usuario
      */
-    static iniciarSesion = (usuario, password) => {
+    static iniciarSesion = (usuario, password, checkbox) => {
         let loginExitoso = GestionUsuarios.usuarios.find(Usuario => (Usuario.usuario == usuario)  && (password === Usuario.password));
+        if (checkbox == 'on'){
+            localStorage.setItem(`Recuerdame`, true);
+        }
+        else{
+            localStorage.removeItem(`Recuerdame`);
+        }
         if(loginExitoso){
             GestionUsuarios.usuarioActual = loginExitoso;
             localStorage.setItem('Usuario-Actual', GestionUsuarios.usuarioActual.usuario);            

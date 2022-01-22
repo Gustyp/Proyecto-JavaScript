@@ -83,6 +83,7 @@ class GestionUsuarios{
      * @param {String} email Mail del usuario a ser creado
      * @param {String} password Contraseña del usuario a ser creado
      * @param {String} rePassword Confirmación de la contraseña del usuario a ser creado
+     * @param {Boolean} checkbox Valor del checkbox del formulario
      */
     static crearNuevoUsuario = (nuevoUsuario, email, password, rePassword, checkbox) => {
         const minCaracteresUsuario = 3;

@@ -17,6 +17,9 @@
     }
 
     .card{
+        @include media-breakpoint-down(md) {
+            height: 345px;
+        }
         height: 410px;
         margin: auto;
         width: 400px;
