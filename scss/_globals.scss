@@ -23,6 +23,10 @@ a {
     text-decoration: none;
 }
 
+input {
+    accent-color: $primary;
+}
+
 .nav-link{
     color: #ffff !important;
     background-color: $primary;

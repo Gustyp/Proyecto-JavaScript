@@ -11146,6 +11146,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  accent-color: #6600FF;
+}
+
 .nav-link {
   color: #ffff !important;
   background-color: #6600FF;
