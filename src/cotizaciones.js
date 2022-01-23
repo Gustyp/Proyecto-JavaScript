@@ -65,7 +65,26 @@ async function cotizacionReal() {
     document.querySelector("#RealVenta").innerHTML = `$ ${realVenta}`;
 }
 
+/**
+ * Se encarga de cargar los datos de la última actualización hecha sobre las cotizaciones
+ */
+const cargarHoraActual = () => {
+    const fecha = new Date();
+    const fechaActual = fecha.toLocaleDateString();
+    const horaActual = fecha.toLocaleTimeString();
+    const ultimaActualizacionDolar = document.querySelector(`#ultimaActualizacionDolar`);
+    const ultimaActualizacionEuro = document.querySelector(`#ultimaActualizacionEuro`);
+    const ultimaActualizacionReal = document.querySelector(`#ultimaActualizacionReal`);
+    ultimaActualizacionDolar.innerHTML = `${horaActual}`;
+    ultimaActualizacionEuro.innerHTML = `${horaActual}`;
+    ultimaActualizacionReal.innerHTML = `${horaActual}`;
 
-cotizacionDolar();
-cotizacionEuro();
-cotizacionReal();
+    console.log(fechaActual, horaActual);
+}
+
+$(() =>{
+    cargarHoraActual();
+    cotizacionDolar();
+    cotizacionEuro();
+    cotizacionReal();
+})
