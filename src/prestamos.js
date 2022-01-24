@@ -23,10 +23,7 @@ const solicitarPrestamo = (montoPrestamo, cantidadCuotas) => {
     const esPrestamoValido = ValidacionOperacion.verificarPrestamoValido(montoPrestamo, cantidadCuotas);
     const poseePrestamoPrevio = usuarioEnUso.prestamoSolicitado;
     const prestamo = crearPrestamo(montoPrestamo, cantidadCuotas);
-    console.log(`El monto es de ${montoPrestamo} y la cantidad de cuotas es de ${cantidadCuotas}`);
     if (esPrestamoValido){
-        console.log(`Préstamo válido`);
-        console.log(`El valor de poseeprestamoprevio es ${poseePrestamoPrevio}`);
         if (poseePrestamoPrevio){
             Swal.fire({
                 icon: 'error',
@@ -42,14 +39,10 @@ const solicitarPrestamo = (montoPrestamo, cantidadCuotas) => {
                 allowOutsideClick: false,
                 heightAuto: false,
             })
-            console.log(`no tenes un prestamo previo, podes pedir uno`);
             usuarioEnUso.movimientos.unshift(prestamo);
             usuarioEnUso.prestamoSolicitado = true;
             GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
         }
-    }
-    else{
-        console.log(`Préstamo inválido`);
     }
 }
 

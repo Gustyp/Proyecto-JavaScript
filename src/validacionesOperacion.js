@@ -14,7 +14,6 @@ class ValidacionOperacion{
                 title: 'Ups...',
                 text: 'Has ingresado un monto inválido.',
             })
-            console.log(`Ha ingresado un monto inválido.`);
             return false;
         }
         return true;
@@ -32,7 +31,6 @@ class ValidacionOperacion{
                 title: 'Ups...',
                 text: 'Has ingresado un número de cuotas inválido.',
             })
-            console.log(`Ha ingresado un número de cuotas inválido.`);
             return false;
         }
         return true;
@@ -64,7 +62,6 @@ class ValidacionOperacion{
         const existeUsuarioMail = GestionUsuarios.usuarios.find(usuario => usuario.mail == destinatario)
         const existeUsuarioCvu = GestionUsuarios.usuarios.find(usuario => usuario.cvu == destinatario)
         arrayUsuarioExistente.push(existeUsuarioNombre, existeUsuarioMail, existeUsuarioCvu);
-        console.log(arrayUsuarioExistente);
         const noExisteUsuario = arrayUsuarioExistente.every(e => e == undefined);
         if (noExisteUsuario){
             Swal.fire(
@@ -76,8 +73,6 @@ class ValidacionOperacion{
         }
         const filterUsuarioEncontrado = arrayUsuarioExistente.filter(e => e);
         const usuarioEncontrado = filterUsuarioEncontrado[0];
-        console.log(`El usuario encontrado es: `);
-        console.log(usuarioEncontrado.usuario);
         return usuarioEncontrado;
     }
 
@@ -93,7 +88,6 @@ class ValidacionOperacion{
         const montoAceptado = ValidacionOperacion.esMontoValido(dineroTransferencia);
         if (usuarioExistente && montoAceptado){
             if (GestionUsuarios.usuarioActual == usuarioExistente){
-                console.log(`Soy yo mismo`);
                 Swal.fire({
                     title: '¿Estás bien?',
                     text: "¡Es imposible enviarte una transferencia a ti mismo!",
@@ -102,10 +96,7 @@ class ValidacionOperacion{
                 });
                 return false;
             }
-            console.log(`Arriba lee.`);
             const transferenciaRecibida = crearTransferenciaRecibida(dineroTransferencia, usuarioEnUso.usuario);
-            console.log(`La transferencia que recibirá ${usuarioExistente.usuario} es de $${dineroTransferencia}`);
-            console.log(dineroTransferencia);
             usuarioExistente.movimientos.unshift(transferenciaRecibida);
             GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
             return true;

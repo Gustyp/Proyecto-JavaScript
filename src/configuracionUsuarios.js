@@ -42,15 +42,9 @@ class GestionUsuarios{
         const datosUsuarioActual = localStorage.getItem('Usuario-Actual');
         if(datosAlmacenados){
             GestionUsuarios.usuarios = JSON.parse(datosAlmacenados);
-            console.log(`El array es: ${GestionUsuarios.usuarios}`);
-            // Probando que se almacenaron los usuarios en el array correctamente
-            GestionUsuarios.usuarios.forEach((Usuario) =>{
-            console.table(Usuario)
-            })
         }
         if(datosUsuarioActual){
             GestionUsuarios.usuarioActual = datosUsuarioActual;
-            console.log(`El usuario actual es ${datosUsuarioActual}`);
         }
     }
 

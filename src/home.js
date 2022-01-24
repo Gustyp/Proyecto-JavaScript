@@ -14,10 +14,7 @@ const transferirAUsuario = e => {
     const destinatario = data.get(`destinatario`);
     if (ValidacionOperacion.esUsuarioValido(destinatario, dineroTransferencia)){
         const transferencia = crearTransferencia(dineroTransferencia, destinatario);
-        console.log(`La transferencia es de ${dineroTransferencia}`);
-        console.log(transferencia);
         usuarioEnUso.movimientos.unshift(transferencia);
-        console.log(usuarioEnUso.movimientos);
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -41,9 +38,7 @@ const transferirAUsuario = e => {
  */
 const transferirDinero = () =>{
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
-    console.log(usuarioEnUso);
     const saldoDisponible = document.querySelector('#saldoDisponible');
-    console.log(`Transferencia de dinero`);
     crearModalTransferencia();
     saldoDisponible.innerHTML = `Saldo disponible: $${usuarioEnUso.saldo}`;
     $('#volverAlHome').on('click', volverAHome);  
@@ -59,11 +54,8 @@ const depositarEnCuenta = e => {
     const data = new FormData(e.target);
     const dineroDeposito = data.get(`transferencia`);
     const deposito = crearDeposito(dineroDeposito);
-    console.log(`El depósito es de ${dineroDeposito}`);
-    console.log(deposito);
     if (ValidacionOperacion.esDepositoValido(dineroDeposito)){
         usuarioEnUso.movimientos.unshift(deposito);
-        console.log(usuarioEnUso.movimientos);
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -88,8 +80,6 @@ const depositarEnCuenta = e => {
 const depositarDinero = () => {
     const saldoDisponible = document.querySelector('#saldoDisponible');
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
-    console.log(usuarioEnUso);
-    console.log(`Depósito de dinero`);
     crearModalDeposito();
     saldoDisponible.innerHTML = `Saldo disponible: $${usuarioEnUso.saldo}`;
     $('#transaccion').on('submit', depositarEnCuenta);
@@ -168,7 +158,6 @@ const iniciar = () => {
     GestionUsuarios.iniciar();
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     saldoDisponible.innerHTML = `Saldo disponible: $ ${usuarioEnUso.saldo}`;
-    console.log(usuarioEnUso.movimientos);
     mostrarNoHayMovimientos(usuarioEnUso);
     agregarMovimientos(usuarioEnUso);
     $('#ingresoDinero').on('click', depositarDinero);

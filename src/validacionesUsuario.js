@@ -149,7 +149,6 @@ class ValidacionUsuario{
         const mensajeErrorNoAceptaBasesYCondiciones = `Debe aceptar las bases y condiciones`;
         const formulario = document.querySelector("#registerForm");
         const formControl = formulario.checkAceptar;
-        console.log(`El valor del checkbox es ${checkbox}`);
         if (checkbox == null){
             ValidacionUsuario.mostrarError(formControl, mensajeErrorNoAceptaBasesYCondiciones);
             return false;

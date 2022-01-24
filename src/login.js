@@ -25,7 +25,6 @@ const iniciar = () => {
         inputUsuario.value = usuarioGuardado;
         inputPassword.value = passwordGuardado;
     }
-    // localStorage.removeItem('Usuario-Actual');
     // Evento que se encarga de otener los datos del formulario de login al presionar el botón Enviar
     $('#loginForm').on('submit', obtenerDatosFormulario); 
 }
