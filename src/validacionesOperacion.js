@@ -59,7 +59,7 @@ class ValidacionOperacion{
      * @returns Devuelve el usuario encontrado en caso de que se encuentre similitud a una cuenta creada, de lo contrario devolverá false
      */
     static existeUsuario = destinatario => {
-        arrayUsuarioExistente = [];
+        const arrayUsuarioExistente = [];
         const existeUsuarioNombre = GestionUsuarios.usuarios.find(usuario => usuario.usuario == destinatario);
         const existeUsuarioMail = GestionUsuarios.usuarios.find(usuario => usuario.mail == destinatario)
         const existeUsuarioCvu = GestionUsuarios.usuarios.find(usuario => usuario.cvu == destinatario)
