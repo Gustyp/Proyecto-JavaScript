@@ -8,12 +8,18 @@ class ControlSesion{
      * @param {String} password Contraseña del usuario
      */
     static iniciarSesion = (usuario, password, checkbox) => {
-        let loginExitoso = GestionUsuarios.usuarios.find(Usuario => (Usuario.usuario == usuario)  && (password === Usuario.password));
+        const loginExitoso = GestionUsuarios.usuarios.find(Usuario => (Usuario.usuario == usuario)  && (password === Usuario.password));
+        const usuarioIngresado = document.querySelector(`#user`).value;
+        const passwordIngresado = document.querySelector(`#password`).value;
         if (checkbox == 'on'){
             localStorage.setItem(`Recuerdame`, true);
+            localStorage.setItem(`Usuario-Guardado`, usuarioIngresado);
+            localStorage.setItem(`Contraseña-Guardada`, passwordIngresado);
         }
         else{
             localStorage.removeItem(`Recuerdame`);
+            localStorage.removeItem(`Usuario-Guardado`, usuarioIngresado);
+            localStorage.removeItem(`Contraseña-Guardada`, passwordIngresado);
         }
         if(loginExitoso){
             GestionUsuarios.usuarioActual = loginExitoso;
@@ -35,8 +41,7 @@ class ControlSesion{
      * Se encarga de simular el cierre de sesión
      */
     static cerrarSesion = () => {
-        GestionUsuarios.usuarioActual = null;
-        localStorage.removeItem(`Usuario-Actual`)
+        localStorage.removeItem(`Usuario-Actual`);
         window.location.href="./index.html";
     }
 }

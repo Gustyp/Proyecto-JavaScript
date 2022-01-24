@@ -15,13 +15,13 @@ const obtenerDatosFormulario = e => {
  */
 const iniciar = () => {
     GestionUsuarios.iniciar();
-    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
+    localStorage.removeItem(`Usuario-Actual`);
     const recordarUsuario = localStorage.getItem('Recuerdame');
     const inputUsuario = document.querySelector(`#user`);
     const inputPassword = document.querySelector(`#password`);
     if(recordarUsuario){
-        const usuarioGuardado = usuarioEnUso.usuario;
-        const passwordGuardado = usuarioEnUso.password;
+        const usuarioGuardado = localStorage.getItem(`Usuario-Guardado`);
+        const passwordGuardado = localStorage.getItem(`Contraseña-Guardada`);
         inputUsuario.value = usuarioGuardado;
         inputPassword.value = passwordGuardado;
     }
