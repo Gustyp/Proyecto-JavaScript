@@ -3,4 +3,20 @@ const girarTarjeta = () => {
   tarjeta.classList.toggle(`is-flipped`);
 };
 
-$(`#card`).on('click', girarTarjeta);
+const cargarDatosDeUsuario = () => {
+  
+}
+
+/**
+ * Función que se encarga de cargar los datos almacenados en localStorage
+ */
+ const iniciar = () => {
+  GestionUsuarios.iniciar();
+  // Evento que se encarga de otener los datos del formulario de solicitud de préstamo
+  // $('#creditForm').on('submit', obtenerDatosFormulario); 
+  $('#cargarDatos').on('click', cargarDatosDeUsuario);
+  $(`#card`).on('click', girarTarjeta);
+}
+
+// Este evento carga la información desde el localStorage
+$(() => iniciar());
