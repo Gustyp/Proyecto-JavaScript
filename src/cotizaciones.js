@@ -12,7 +12,6 @@ async function cotizacionDolar() {
     document.querySelector("#DolarBlueVenta").innerHTML = `$ ${dolarBlueVenta}`;
     document.querySelector("#DolarBlueVariacion").innerHTML = `$ ${dolarBlueVariacion}`;
 
-    console.log(datosDolar);
     let dolarOficial = (Object.entries(datosDolar).find(dolarArray => dolarArray[1].casa.nombre == "Dolar Oficial"));
     let dolarOficialCompra = dolarOficial[1].casa.compra;
     let dolarOficialVenta = dolarOficial[1].casa.venta;

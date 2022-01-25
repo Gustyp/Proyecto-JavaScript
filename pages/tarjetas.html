@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;600;900&display=swap" rel="stylesheet">
     <!-- Mi CSS -->
     <link rel="stylesheet" href="../css/style.css">
-    <title>Préstamos | CoderBanking</title>
+    <title>Tarjetas | CoderBanking</title>
 </head>
 <body class="home-body fixed-top">
     <section class="sidebar-container">
@@ -17,8 +17,8 @@
         <ul class="menu">
             <li class="py-2 links"><a href="home.html"><p>Posición consolidada</p></a></li>
             <li class="py-2 links"><a href="cotizaciones.html"><p>Cotizaciones</p></a></li>
-            <li class="py-2 links"><a href="tarjetas.html"><p>Solicitar tarjeta</p></a></li>
-            <li class="py-2 links links--selected"><p class="selected">Solicitar préstamo</p></li>
+            <li class="py-2 links links--selected"><p>Solicitar tarjeta</p></li>
+            <li class="py-2 links"><a href="prestamos.html"><p class="selected">Solicitar préstamo</p></a></li>
         </ul>
     </section>
     <div class="w-100 h-100">
@@ -45,26 +45,60 @@
         </header>
         <main class="container-fluid">
             <div class="container-fluid">
-                <div class="row pt-4">
+                <div class="row pt-3">
                     <div class="col-sm-11 m-auto">
                         <div class="card">
                             <div class="card-header">
-                                <h2 class="titulo-home m-auto">Préstamos</h2>
+                                <h2 class="titulo-home m-auto">Tarjetas</h2>
                             </div>
                             <div class="card-body">
-                                <p>
-                                    Para poder solicitar uno de nuestros exclusivos préstamos, tenga en cuenta de que únicamente aceptamos solicitudes con un monto <strong>máximo del 50%</strong> y un <strong>mínimo del 35%</strong> de su salario. 
-                                </p>
-                                <p>La taza de interés depende del número de cuotas deseadas. A partir y por cada 3 cuotas, se le aplica un interés de 9% al monto total que deberá devolver.</p>
-                                <p>
-                                    Sólo podemos otorgarle un préstamo a la vez.
-                                    Puede calcular en cualquier momento el préstamo que desee, antes de realizar la operación.
-                                </p>
+                                <div class="col-12 col-sm-8">
+                                    <div class="main-container">
+                                        <div class="scene">
+                                            <!-- Tarjeta -->
+                                            <div class="tarjeta" id="card">
+                                                <!-- Frente -->
+                                                <div class="tarjeta__front">
+                                                    <img src="../assets/svg/visa-logo.svg" class="tarjeta__logo" />
+                                                <div class="tarjeta__number number d-flex flex-row">
+                                                    <div class="number-group number-group--0">4011</div>
+                                                    <div class="number-group number-group--1">2016</div>
+                                                    <div class="number-group number-group--2">7239</div>
+                                                    <div class="number-group number-group--3">1586</div>
+                                                </div>
+                                                <div class="tarjeta__details">
+                                                    <div class="tarjeta__holder">
+                                                        <span class="tarjeta__holder__title">Nombre y apellido</span>
+                                                        <span class="tarjeta__holder__name">Zara Lynch</span>
+                                                    </div>
+                                                    <div class="tarjeta__expiration">
+                                                        <span class="tarjeta__expiration__title">Expiración</span>
+                                                        <span class="tarjeta__expiration__date">11/28</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Dorso -->
+                                            <div class="tarjeta__back">
+                                                <div class="tarjeta__stripe"></div>
+                                                <div class="tarjeta__signature">
+                                                    <span class="tarjeta__cvv">CVV</span>
+                                                    <span class="tarjeta__cvv-number">239</span>
+                                                </div>
+                                                <p class="tarjeta__info">
+                                                    Using this card to purchase goods and services whenever you see
+                                                    the VISA symbol. Your use of this card is acceptance to your
+                                                    issuer's arragements including amendments.
+                                                </p>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row mb-5">
+                <div class="row">
                     <div class="col-12 col-sm-11 col-md-4 m-auto">
                         <div class="card card--prestamo m-auto">
                             <div class="card-header">
@@ -82,11 +116,11 @@
                                         <input id="cantidadCuotas" type="number" name="cuotas" class="form-control" placeholder="Número de cuotas">
                                         <small class="col-12 mt-1"><p></p></small>
                                     </div> 
-                                    <div class="input-group">
+                                    <!-- <div class="input-group">
                                         <span class="input-group-text"><ion-icon size="large" name="alert-circle-outline"></ion-icon></span>
                                         <input id="montoADevolver" type="text" name="cuotas" class="form-control" placeholder="Monto a devolver" disabled>
                                         <small class="col-12 mt-1"><p></p></small>
-                                    </div> 
+                                    </div>  -->
                                     <div class="d-flex justify-content-end pt-4 gap-3">
                                         <button type="button" id="calcularPrestamo" class="btn btn-primary">Calcular</button>
                                         <button type="submit" class="btn btn-primary">Solicitar</button>
@@ -96,9 +130,9 @@
                         </div>
                     </div>
                     <div class="col-sm-4 img-box m-auto">
-                        <img src="../assets/svg/personal-finance.svg" alt="" class="img-fluid">
+                        <img src="../assets/svg/credit-card.svg" alt="" class="img-fluid">
                     </div> 
-                </div>
+                </div> 
             </div>
         </main>
         <footer>
@@ -111,11 +145,11 @@
                     <ion-icon size="large" name="cash-outline"></ion-icon>
                     <span>Cotizaciones</span>
                 </a>
-                <a href="tarjetas.html" class="nav__link">
+                <a href="#" class="nav__link nav__link--active">
                     <ion-icon size="large" name="card-outline"></ion-icon>
                     <span>Solicitar tarjeta</span>
                 </a>
-                <a href="#" class="nav__link nav__link--active">
+                <a href="prestamos.html" class="nav__link">
                     <ion-icon size="large" name="wallet-outline"></ion-icon>
                     <span>Solicitar préstamo</span>
                 </a>
@@ -128,6 +162,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../src/tarjeta.js"></script>
     <script src="../src/validacionesOperacion.js"></script>
     <script src="../src/configuracionUsuarios.js"></script>
     <script src="../src/operaciones.js"></script>
