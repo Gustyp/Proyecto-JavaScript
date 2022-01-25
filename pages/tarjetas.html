@@ -52,46 +52,52 @@
                                 <h2 class="titulo-home m-auto">Tarjetas</h2>
                             </div>
                             <div class="card-body">
-                                <div class="col-12 col-sm-8">
-                                    <div class="main-container">
-                                        <div class="scene">
-                                            <!-- Tarjeta -->
-                                            <div class="tarjeta" id="card">
-                                                <!-- Frente -->
-                                                <div class="tarjeta__front">
-                                                    <img src="../assets/svg/visa-logo.svg" class="tarjeta__logo" />
-                                                <div class="tarjeta__number number d-flex flex-row">
-                                                    <div class="number-group number-group--0">4011</div>
-                                                    <div class="number-group number-group--1">2016</div>
-                                                    <div class="number-group number-group--2">7239</div>
-                                                    <div class="number-group number-group--3">1586</div>
-                                                </div>
-                                                <div class="tarjeta__details">
-                                                    <div class="tarjeta__holder">
-                                                        <span class="tarjeta__holder__title">Nombre y apellido</span>
-                                                        <span class="tarjeta__holder__name">Zara Lynch</span>
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="main-container">
+                                            <div class="scene">
+                                                <!-- Tarjeta -->
+                                                <div class="tarjeta" id="card">
+                                                    <!-- Frente -->
+                                                    <div class="tarjeta__front">
+                                                        <img src="../assets/svg/visa-logo.svg" class="tarjeta__logo" />
+                                                    <div class="tarjeta__number number d-flex flex-row">
+                                                        <div class="number-group number-group--0">4011</div>
+                                                        <div class="number-group number-group--1">2016</div>
+                                                        <div class="number-group number-group--2">7239</div>
+                                                        <div class="number-group number-group--3">1586</div>
                                                     </div>
-                                                    <div class="tarjeta__expiration">
-                                                        <span class="tarjeta__expiration__title">Expiración</span>
-                                                        <span class="tarjeta__expiration__date">11/28</span>
+                                                    <div class="tarjeta__details">
+                                                        <div class="tarjeta__holder">
+                                                            <span class="tarjeta__holder__title">Nombre y apellido</span>
+                                                            <span class="tarjeta__holder__name">Zara Lynch</span>
+                                                        </div>
+                                                        <div class="tarjeta__expiration">
+                                                            <span class="tarjeta__expiration__title">Expiración</span>
+                                                            <span class="tarjeta__expiration__date">11/28</span>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <!-- Dorso -->
+                                                    <div class="tarjeta__back">
+                                                        <div class="tarjeta__stripe"></div>
+                                                        <div class="tarjeta__signature">
+                                                            <span class="tarjeta__cvv">CVV</span>
+                                                            <span class="tarjeta__cvv-number">239</span>
+                                                        </div>
+                                                        <p class="tarjeta__info">
+                                                            Using this card to purchase goods and services whenever you see
+                                                            the VISA symbol. Your use of this card is acceptance to your
+                                                            issuer's arragements including amendments.
+                                                        </p>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- Dorso -->
-                                            <div class="tarjeta__back">
-                                                <div class="tarjeta__stripe"></div>
-                                                <div class="tarjeta__signature">
-                                                    <span class="tarjeta__cvv">CVV</span>
-                                                    <span class="tarjeta__cvv-number">239</span>
-                                                </div>
-                                                <p class="tarjeta__info">
-                                                    Using this card to purchase goods and services whenever you see
-                                                    the VISA symbol. Your use of this card is acceptance to your
-                                                    issuer's arragements including amendments.
-                                                </p>
-                                            </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-sm-6 m-auto">
+                                        <p>Bienvenido al área de solicitud de tarjetas de crédito y débito.</p>     
+                                        <p>Aquí podrá solicitar la aprobación de las mismas, y si aprueba nuestros requisitos, podrá operar con la misma ya que se le brindará una tarjeta virtual, hasta el momento de que el plástico virtual llegue a su domicilio.</p>            
                                     </div>
                                 </div>
                             </div>
@@ -107,22 +113,22 @@
                             <div class="card-body mt-3">
                                 <form id="creditForm">
                                     <div class="input-group">
-                                        <span class="input-group-text"><ion-icon size="large" name="cash-outline"></ion-icon></span>
-                                        <input id="montoPrestamo" type="number" name="monto" class="form-control" placeholder="Monto a solicitar">
+                                        <span class="input-group-text"><ion-icon size="large" name="person-outline"></ion-icon></span>
+                                        <input id="montoPrestamo" type="number" name="monto" class="form-control" placeholder="Nombre y apellido" disabled>
                                         <small class="col-12 mt-1"><p></p></small>
                                     </div>
                                     <div class="input-group">
-                                        <span class="input-group-text"><ion-icon size="large" name="help-outline"></ion-icon></span>
-                                        <input id="cantidadCuotas" type="number" name="cuotas" class="form-control" placeholder="Número de cuotas">
+                                        <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
+                                        <input id="cantidadCuotas" type="number" name="cuotas" class="form-control" placeholder="Edad" disabled>
                                         <small class="col-12 mt-1"><p></p></small>
                                     </div> 
-                                    <!-- <div class="input-group">
-                                        <span class="input-group-text"><ion-icon size="large" name="alert-circle-outline"></ion-icon></span>
-                                        <input id="montoADevolver" type="text" name="cuotas" class="form-control" placeholder="Monto a devolver" disabled>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
+                                        <input id="cantidadCuotas" type="number" name="cuotas" class="form-control" placeholder="Sueldo actual" disabled>
                                         <small class="col-12 mt-1"><p></p></small>
-                                    </div>  -->
+                                    </div> 
                                     <div class="d-flex justify-content-end pt-4 gap-3">
-                                        <button type="button" id="calcularPrestamo" class="btn btn-primary">Calcular</button>
+                                        <button id="cargarDatos" type="button" class="btn btn-primary">Cargar datos</button>
                                         <button type="submit" class="btn btn-primary">Solicitar</button>
                                     </div>
                                 </form>
