@@ -10,14 +10,26 @@ class Usuario{
      * @param {String} cvu Clave virtual uniforme que se le otorga al usuario al crear una cuenta con éxito
      */
     constructor(usuario, email, password, cvu){
+        this.nombre;
+        this.apellido;
+        this.edad;
+        this.sueldo;
         this.usuario = usuario;
         this.mail = email;
         this.password = password;
         this.saldo = Number(Math.round(Math.random()*99999));
         this.prestamoSolicitado = false;
+        this.tarjetaSolicitada = false;
         this.cvu = cvu;
         this.movimientos = [];
     }
+    establecerNombre = nombre => this.nombre = nombre;
+
+    establecerApellido = apellido => this.apellido = apellido;
+
+    establecerEdad = edad => this.edad = edad;
+
+    estalecerSueldo = sueldo => this.sueldo = sueldo;
 }
 
 // Clase para la gestión de las cuentas de usuario
@@ -30,7 +42,7 @@ class GestionUsuarios{
     
     /**
      * Variable que contiene el usuario actual 
-     * @type {object}
+     * @type {Object}
      */
     static usuarioActual;
 
@@ -93,8 +105,6 @@ class GestionUsuarios{
         const sextaValidacion = ValidacionUsuario.aceptaBasesYCondiciones(checkbox);
         arrayValidaciones.push(primerValidacion, segundaValidacion, terceraValidacion, cuartaValidacion, quintaValidacion, sextaValidacion);
         const RegistroExitoso = arrayValidaciones.every(e => e);
-        // console.log(arrayValidaciones);
-        // console.log(RegistroExitoso);
         if (RegistroExitoso){
             const cvu = GestionUsuarios.crearCvu(); 
             const usuario = new Usuario(nuevoUsuario, email, password, cvu);

@@ -173,4 +173,51 @@
             }
         }
     }
+    
+    .modal-content{
+        width: auto;
+    }
+
+    .card--modal{
+        min-height: 220px;
+        margin: auto;
+        min-width: 30rem;
+        
+        .card-header h3{
+            color: white;
+        }
+
+        .input-group{
+
+            & span{
+                width: 50px;
+                background-color: #43e995;
+                color: black;
+                border:0 !important;
+            }
+        
+            & small{
+                font-size: 0.8em;
+                color: $secondary;
+                left: 0;
+                bottom: 1em;
+                visibility: hidden;
+            }
+        
+            &.error small {
+                visibility: visible;
+            }
+        }
+
+        .prestamo-btn{
+            color: black;
+            background-color: #43e995;
+            width: 100px;
+        
+            &:hover{
+                color: black;
+                background-color: white;
+            }
+        }
+    }
 }

@@ -11326,6 +11326,42 @@ input {
   color: black;
   background-color: white;
 }
+.home-body .modal-content {
+  width: auto;
+}
+.home-body .card--modal {
+  min-height: 220px;
+  margin: auto;
+  min-width: 30rem;
+}
+.home-body .card--modal .card-header h3, .home-body .card--modal .card-header .h3 {
+  color: white;
+}
+.home-body .card--modal .input-group span {
+  width: 50px;
+  background-color: #43e995;
+  color: black;
+  border: 0 !important;
+}
+.home-body .card--modal .input-group small, .home-body .card--modal .input-group .small {
+  font-size: 0.8em;
+  color: #00CC99;
+  left: 0;
+  bottom: 1em;
+  visibility: hidden;
+}
+.home-body .card--modal .input-group.error small, .home-body .card--modal .input-group.error .small {
+  visibility: visible;
+}
+.home-body .card--modal .prestamo-btn {
+  color: black;
+  background-color: #43e995;
+  width: 100px;
+}
+.home-body .card--modal .prestamo-btn:hover {
+  color: black;
+  background-color: white;
+}
 
 .login-body .container-fluid, .login-body .container-sm, .login-body .container-md, .login-body .container-lg, .login-body .container-xl, .login-body .container-xxl {
   height: 100%;

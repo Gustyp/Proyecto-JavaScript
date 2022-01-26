@@ -42,7 +42,7 @@ const transferirDinero = () =>{
     crearModalTransferencia();
     saldoDisponible.innerHTML = `Saldo disponible: $${usuarioEnUso.saldo}`;
     $('#volverAlHome').on('click', volverAHome);  
-    $('#transaccion').on('submit', transferirAUsuario);    
+    $('#modalForm').on('submit', transferirAUsuario);    
 }
 
 /**
@@ -82,7 +82,7 @@ const depositarDinero = () => {
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     crearModalDeposito();
     saldoDisponible.innerHTML = `Saldo disponible: $${usuarioEnUso.saldo}`;
-    $('#transaccion').on('submit', depositarEnCuenta);
+    $('#modalForm').on('submit', depositarEnCuenta);
     $('#volverAlHome').on('click', volverAHome);
 }
 
@@ -151,19 +151,25 @@ const mostrarCvu = () => {
     })
 }
 
+const cargarDatosPersonales = () => {
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
+    crearModalDatosPersonales(); 
+}
+
 /**
  * Función que se encarga de cargar los datos almacenados en localStorage, y administra los eventos de depósito y transferencia
  */
 const iniciar = () => {
     GestionUsuarios.iniciar();
-    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
+    const saldoDisponible = document.querySelector('#saldoDisponible');
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();    
     saldoDisponible.innerHTML = `Saldo disponible: $ ${usuarioEnUso.saldo}`;
     mostrarNoHayMovimientos(usuarioEnUso);
     agregarMovimientos(usuarioEnUso);
     $('#ingresoDinero').on('click', depositarDinero);
     $('#envioDinero').on('click', transferirDinero);
     $('#cvuUsuario').on('click', mostrarCvu);
-
+    $(`#misDatos`).on(`click`, cargarDatosPersonales);
 }
 
 // Este evento carga la información desde el localStorage

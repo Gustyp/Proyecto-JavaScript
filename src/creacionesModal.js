@@ -6,22 +6,20 @@ const crearNuevoModal = () => {
     let nuevoModal = document.createElement(`div`);
     nuevoModal.innerHTML = `
     <!-- Botón Modal -->
-    <button type="button" class="btn btn-primary hidden operacion-modal" data-bs-toggle="modal" data-bs-target="#transferencia"></button>
+    <button type="button" class="btn btn-primary hidden operacion-modal" data-bs-toggle="modal" data-bs-target="#modal"></button>
     <!-- Modal -->
-    <div class="modal fade" id="transferencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <form id="transaccion">
-                    <div class="modal-header card m-0">
-                        <p class="modal-title titulo-home h4" id="tituloModal"></p>
+                <div class="card card--modal m-auto">
+                    <div class="card-header">
+                        <h2 class="titulo-home m-auto" id="tituloModal"></h2>
                     </div>
-                    <div class="modal-body">
+                    <div class="card-body mt-3">
+                        <form id="modalForm">
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                        <button type="button" id="volverAlHome" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>`
@@ -35,18 +33,22 @@ const crearModalTransferencia = () => {
     const main = document.querySelector(`main`);
     const nuevoModal = crearNuevoModal();
     main.appendChild(nuevoModal);
-    document.querySelector(`.modal-body`).innerHTML = 
-    `<div class="input-group align-items-center">
-        <small for="transferencia" class="pe-2" id="textoTransferencia"></small>
-        <input type="number" name="transferencia" class="form-control m-2" placeholder="$">
+    document.querySelector(`#modalForm`).innerHTML = `
+    <div class="input-group">
+        <span class="input-group-text"><ion-icon size="large" name="logo-usd"></ion-icon></span>
+        <input type="number" for="modalForm" name="transferencia" class="form-control" placeholder="Ingrese el valor de su transferencia">
+        <small class="col-12 mt-1"><p></p></small>
     </div>
-    <div class="input-group align-items-center">
-        <small for="transferencia" class="pe-2" id="textoDestinatario"></small>
-        <input type="text" name="destinatario" class="form-control m-2" placeholder="CVU / nombre de usuario / mail">
-    </div>`
+    <div class="input-group">
+        <span class="input-group-text"><ion-icon size="large" name="person-outline"></ion-icon></span>
+        <input type="text" for="modalForm" name="destinatario" class="form-control" placeholder="Ingrese destinatario CVU / user / mail">
+        <small class="col-12 mt-1"><p></p></small>
+    </div> 
+    <div class="modal-footer p-0">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="button" id="volverAlHome" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+    </div>`;
     document.querySelector(`#tituloModal`).innerHTML = `Transferencia`;         
-    document.querySelector('#textoTransferencia').innerHTML = `Ingrese el valor de su transferencia:`;
-    document.querySelector(`#textoDestinatario`).innerHTML = `Ingrese destinatario:`;
     document.querySelector(`.operacion-modal`).click();
 }
 
@@ -57,12 +59,45 @@ const crearModalDeposito = () => {
     const main = document.querySelector(`main`);
     let nuevoModal = crearNuevoModal();
     main.appendChild(nuevoModal);
-    document.querySelector(`.modal-body`).innerHTML = 
-    `<div class="input-group align-items-center">
-        <small for="transferencia" class="pe-2" id="textoTransferencia"></small>
-        <input type="number" name="transferencia" class="form-control m-2" placeholder="$">
-    </div>`  
+    document.querySelector(`#modalForm`).innerHTML = 
+    `<div class="input-group">
+        <span class="input-group-text"><ion-icon size="large" name="logo-usd"></ion-icon></span>
+        <input type="number" name="transferencia" class="form-control" placeholder="Ingrese el valor de su depósito">
+        <small class="col-12 mt-1"><p></p></small>
+    </div>
+    <div class="modal-footer p-0">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="button" id="volverAlHome" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+    </div>`
     document.querySelector(`#tituloModal`).innerHTML = `Depósito`;  
-    document.querySelector('#textoTransferencia').innerHTML = `Ingrese el valor de su depósito:`;
+    document.querySelector(`.operacion-modal`).click();
+}
+
+const crearModalDatosPersonales = () => {
+    const main = document.querySelector(`main`);
+    let nuevoModal = crearNuevoModal();
+    main.appendChild(nuevoModal);
+    document.querySelector(`#modalForm`).innerHTML = `
+    <div class="input-group">
+        <span class="input-group-text"><ion-icon size="large" name="person-outline"></ion-icon></span>
+        <input id="nombreCompletoUsuario" type="number" name="monto" class="form-control" placeholder="Nombre y apellido" disabled>
+        <small class="col-12 mt-1"><p></p></small>
+    </div>
+    <div class="input-group">
+        <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
+        <input id="edadUsuario" type="number" name="cuotas" class="form-control" placeholder="Edad" disabled>
+        <small class="col-12 mt-1"><p></p></small>
+    </div> 
+    <div class="input-group">
+        <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
+        <input id="sueldoUsuario" type="number" name="cuotas" class="form-control" placeholder="Sueldo actual" disabled>
+        <small class="col-12 mt-1"><p></p></small>
+    </div> 
+    <div class="d-flex justify-content-end pt-4 gap-3">
+        <button id="cargarDatos" type="button" class="btn btn-primary">Cargar datos</button>
+        <button type="button" class="btn btn-primary">Cerrar</button>
+    </div>`;
+
+    document.querySelector(`#tituloModal`).innerHTML = `Datos Personales`;  
     document.querySelector(`.operacion-modal`).click();
 }
