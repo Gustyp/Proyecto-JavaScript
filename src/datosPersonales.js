@@ -11,6 +11,7 @@ const guardarDatos = e => {
     const edad = data.get(`edad`);
     const sueldo = data.get(`sueldo`);
     const arrayNombreCompleto = nombreCompleto.split(' ', 2);
+    console.log(arrayNombreCompleto);
     if (ValidacionOperacion.sonDatosValidos(arrayNombreCompleto[0],arrayNombreCompleto[1], edad, sueldo)){
         Swal.fire({
             position: 'center',
@@ -46,7 +47,9 @@ const cargarDatosPersonales = () => {
     const inputNombreCompleto = document.querySelector(`#nombreCompletoUsuario`);
     const inputEdad = document.querySelector(`#edadUsuario`);
     const inputSueldo = document.querySelector(`#sueldoUsuario`);
-    inputNombreCompleto.value = `${usuarioEnUso.nombre} ${usuarioEnUso.apellido}`;
+    if (usuarioEnUso.nombre != undefined && usuarioEnUso.apellido != undefined){
+        inputNombreCompleto.value = `${usuarioEnUso.nombre} ${usuarioEnUso.apellido}`;
+    }
     inputEdad.value = `${usuarioEnUso.edad}`;
     inputSueldo.value = `${usuarioEnUso.sueldo}`;
     $(`#modalForm`).on(`submit`, guardarDatos);
