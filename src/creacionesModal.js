@@ -80,22 +80,22 @@ const crearModalDatosPersonales = () => {
     document.querySelector(`#modalForm`).innerHTML = `
     <div class="input-group">
         <span class="input-group-text"><ion-icon size="large" name="person-outline"></ion-icon></span>
-        <input id="nombreCompletoUsuario" type="number" name="monto" class="form-control" placeholder="Nombre y apellido" disabled>
+        <input id="nombreCompletoUsuario" type="text" name="nombreApellido" class="form-control" placeholder="Nombre y apellido">
         <small class="col-12 mt-1"><p></p></small>
     </div>
     <div class="input-group">
         <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
-        <input id="edadUsuario" type="number" name="cuotas" class="form-control" placeholder="Edad" disabled>
+        <input id="edadUsuario" type="number" name="edad" class="form-control" placeholder="Edad">
         <small class="col-12 mt-1"><p></p></small>
     </div> 
     <div class="input-group">
         <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
-        <input id="sueldoUsuario" type="number" name="cuotas" class="form-control" placeholder="Sueldo actual" disabled>
+        <input id="sueldoUsuario" type="number" name="sueldo" class="form-control" placeholder="Sueldo actual">
         <small class="col-12 mt-1"><p></p></small>
     </div> 
     <div class="d-flex justify-content-end pt-4 gap-3">
-        <button id="cargarDatos" type="button" class="btn btn-primary">Cargar datos</button>
-        <button type="button" class="btn btn-primary">Cerrar</button>
+        <button id="cargarDatos" type="submit" class="btn btn-primary">Cargar datos</button>
+        <button type="button" id="volverAlHome" class="btn btn-primary">Cerrar</button>
     </div>`;
 
     document.querySelector(`#tituloModal`).innerHTML = `Datos Personales`;  

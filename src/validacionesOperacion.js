@@ -19,6 +19,30 @@ class ValidacionOperacion{
         return true;
     }
 
+    static esEdadValida = edad => {
+        if (edad <= 0 || edad == ``){
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'Has ingresado una edad inválida.',
+            })
+            return false;
+        }
+        return true;
+    }
+
+    static esNombreCompleto = (nombre, apellido) => {
+        if (nombre == undefined || apellido == undefined){
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'Debes ingresar tu nombre completo.',
+            })
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Se encarga de verificar que la cantidad de cuotas ingresadas sea válida
      * @param {Number} cuotas Cantidad de cuotas en las que se solicita el préstamo
@@ -42,14 +66,14 @@ class ValidacionOperacion{
      * @param {Number} cantidadCuotas Cantidad de cuotas del préstamo a solicitar
      * @returns 
      */
-    static verificarPrestamoValido = (montoPrestamo, cantidadCuotas) => ValidacionOperacion.esMontoValido(montoPrestamo) && ValidacionOperacion.sonCuotasValidas(cantidadCuotas);
+    static verificarPrestamoValido = (montoPrestamo, cantidadCuotas) => this.esMontoValido(montoPrestamo) && this.sonCuotasValidas(cantidadCuotas);
 
     /**
      * Se encarga de verificar que la solicitud de depósito sea válida
      * @param {Number} dineroDeposito Monto del depósito a realizarse
      * @returns {Boolean} Devuelve true solamente en caso de que el depósito sea válido
      */
-    static esDepositoValido = dineroDeposito => ValidacionOperacion.esMontoValido(dineroDeposito);
+    static esDepositoValido = dineroDeposito => this.esMontoValido(dineroDeposito);
 
     /**
      * Se encarga de verificar que el destinatario exista
@@ -76,6 +100,16 @@ class ValidacionOperacion{
         return usuarioEncontrado;
     }
 
+    static sonDatosValidos = (nombre, apellido, edad, sueldo) => {
+        if (!this.esNombreCompleto(nombre, apellido)){   
+            return false;
+        }
+        if (!this.esEdadValida(edad) || !this.esMontoValido(sueldo)){
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Se encarga de verificar si el usuario al que se envia la transferencia existe y si el monto a enviar es válido
      * @param {String} destinatario Identificatorio del usuario al que se le enviará el dinero 
@@ -84,8 +118,8 @@ class ValidacionOperacion{
      */
     static esUsuarioValido = (destinatario, dineroTransferencia) => {
         const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
-        const usuarioExistente = ValidacionOperacion.existeUsuario(destinatario);
-        const montoAceptado = ValidacionOperacion.esMontoValido(dineroTransferencia);
+        const usuarioExistente = this.existeUsuario(destinatario);
+        const montoAceptado = this.esMontoValido(dineroTransferencia);
         if (usuarioExistente && montoAceptado){
             if (GestionUsuarios.usuarioActual == usuarioExistente){
                 Swal.fire({

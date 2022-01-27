@@ -151,11 +151,6 @@ const mostrarCvu = () => {
     })
 }
 
-const cargarDatosPersonales = () => {
-    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
-    crearModalDatosPersonales(); 
-}
-
 /**
  * Función que se encarga de cargar los datos almacenados en localStorage, y administra los eventos de depósito y transferencia
  */

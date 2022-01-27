@@ -65,6 +65,7 @@ const iniciar = () => {
     // Evento que se encarga de otener los datos del formulario de solicitud de préstamo
     $('#creditForm').on('submit', obtenerDatosFormulario); 
     $('#calcularPrestamo').on('click', mostrarMontoADevolver);
+    $(`#misDatos`).on(`click`, cargarDatosPersonales);
 }
 
 // Este evento carga la información desde el localStorage

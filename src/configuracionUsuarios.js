@@ -23,13 +23,6 @@ class Usuario{
         this.cvu = cvu;
         this.movimientos = [];
     }
-    establecerNombre = nombre => this.nombre = nombre;
-
-    establecerApellido = apellido => this.apellido = apellido;
-
-    establecerEdad = edad => this.edad = edad;
-
-    estalecerSueldo = sueldo => this.sueldo = sueldo;
 }
 
 // Clase para la gestión de las cuentas de usuario
@@ -53,10 +46,10 @@ class GestionUsuarios{
         const datosAlmacenados = localStorage.getItem('Usuarios');
         const datosUsuarioActual = localStorage.getItem('Usuario-Actual');
         if(datosAlmacenados){
-            GestionUsuarios.usuarios = JSON.parse(datosAlmacenados);
+            this.usuarios = JSON.parse(datosAlmacenados);
         }
         if(datosUsuarioActual){
-            GestionUsuarios.usuarioActual = datosUsuarioActual;
+            this.usuarioActual = datosUsuarioActual;
         }
     }
 
@@ -64,7 +57,7 @@ class GestionUsuarios{
      * Se encarga de encontrar al usuario actual que tiene la sesión iniciada
      * @returns Devuelve el usuario de la sesión actual
      */
-    static detectarUsuarioActual = () => GestionUsuarios.usuarios.find(usuario => GestionUsuarios.usuarioActual == usuario.usuario);
+    static detectarUsuarioActual = () => this.usuarios.find(usuario => this.usuarioActual == usuario.usuario);
     
     /**
      * Guarda usuario en el localStorage y lo mantiene actualizado
@@ -106,10 +99,10 @@ class GestionUsuarios{
         arrayValidaciones.push(primerValidacion, segundaValidacion, terceraValidacion, cuartaValidacion, quintaValidacion, sextaValidacion);
         const RegistroExitoso = arrayValidaciones.every(e => e);
         if (RegistroExitoso){
-            const cvu = GestionUsuarios.crearCvu(); 
+            const cvu = this.crearCvu(); 
             const usuario = new Usuario(nuevoUsuario, email, password, cvu);
-            GestionUsuarios.usuarios.push(usuario);
-            GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
+            this.usuarios.push(usuario);
+            this.guardarUsuario(this.usuarios);
             Swal.fire({
                 title: '¡Felicitaciones!',
                 text: `Bienvenido/a ${nuevoUsuario}, esperamos poder brindarle la mejor experiencia.`,

@@ -16,6 +16,7 @@ const cargarDatosDeUsuario = () => {
   // $('#creditForm').on('submit', obtenerDatosFormulario); 
   $('#cargarDatos').on('click', cargarDatosDeUsuario);
   $(`#card`).on('click', girarTarjeta);
+  $(`#misDatos`).on(`click`, cargarDatosPersonales);
 }
 
 // Este evento carga la información desde el localStorage
