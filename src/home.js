@@ -112,6 +112,10 @@ const mostrarNoHayMovimientos = usuarioEnUso => {
     }
 }
 
+/**
+ * Se encarga de copiar el cvu que se ha generado del usuario
+ * @param {String} cvu Cvu del usuario que va a copiarse a la clipboard
+ */
 const copiarCvu = cvu => {
     navigator.clipboard.writeText(cvu);
     const Toast = Swal.mixin({
@@ -127,6 +131,9 @@ const copiarCvu = cvu => {
     })
 }
 
+/**
+ * Muestra mediante un modal el cvu del usuario que se ha generado
+ */
 const mostrarCvu = () => {
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     Swal.fire({

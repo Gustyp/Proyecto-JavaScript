@@ -73,6 +73,9 @@ const crearModalDeposito = () => {
     document.querySelector(`.operacion-modal`).click();
 }
 
+/**
+ * Se encarga de crear el nuevo modal de datos personales
+ */
 const crearModalDatosPersonales = () => {
     const main = document.querySelector(`main`);
     let nuevoModal = crearNuevoModal();

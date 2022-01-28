@@ -1,8 +1,14 @@
+/**
+ * Se encarga de agregar/quitar la clase que efectua el efecto de giro de la tarjeta
+ */
 const girarTarjeta = () => {
     const tarjeta = document.querySelector("#card");
     tarjeta.classList.toggle(`is-flipped`);
 };
 
+/**
+ * Se encarga de cargar los datos del usuario si es que se encuentran guardados con anterioridad, para poder solicitar la tarjeta
+ */
 const cargarDatosDeUsuario = () => {
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     const inputNombreApellido = document.querySelector(`#nombreCompletoUsuario`)
@@ -22,6 +28,9 @@ const cargarDatosDeUsuario = () => {
     }
 }
 
+/**
+ * Se encarga de tomar los datos del formulario y solicita la tarjeta si cumple con los requisitos, y no solicitó una con anterioridad
+ */
 const solicitarTarjeta = () => {
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     const edadUsuario = document.querySelector(`#edadUsuario`).value;

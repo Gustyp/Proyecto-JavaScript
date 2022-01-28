@@ -65,6 +65,11 @@ class ValidacionUsuario{
         return true;
     }
 
+    /**
+     * Se encarga de verificar que la edad ingresada no sea un espacio vacío o un valor negativo
+     * @param {Number} edad Edad ingresada por el usuario
+     * @returns Devuelve true en caso de que sea una edad válida, en caso contraria devuelve false
+     */
     static esEdadValida = edad => {
         if (edad <= 0 || edad == ``){
             Swal.fire({
@@ -77,6 +82,11 @@ class ValidacionUsuario{
         return true;
     }
 
+    /**
+     * Se encarga de verifcar que el usuario sea mayor de edad en base a la edad que ingresó
+     * @param {Number} edad Edad ingresada por el usuario
+     * @returns Devuelve true en caso de que sea mayor de edad, en caso contrario devolverá false
+     */
     static esMayorDeEdad = edad => {
         if (edad < 18){
             Swal.fire({
@@ -89,6 +99,12 @@ class ValidacionUsuario{
         return true;
     };
 
+    /**
+     * Se encarga de verificar que se haya ingresado un nombre válido, o sea, nombre y apellidos no vacios
+     * @param {String} nombre Nombre ingresado por el usuario
+     * @param {String} apellido Apellido ingresado por el usuario
+     * @returns Devuelve true en caso de que el nombre completo no sean espacios en blanco, en caso contrario devolverá false
+     */
     static esNombreCompleto = (nombre, apellido) => {
         if (nombre == undefined || apellido == undefined){
             Swal.fire({
@@ -101,6 +117,14 @@ class ValidacionUsuario{
         return true;
     }
 
+    /**
+     * Verifica que todos los ingresados por el usuario sean válidos
+     * @param {String} nombre Nombre ingresado por el usuario
+     * @param {String} apellido Apellido ingresado por el usuario
+     * @param {Number} edad Edad ingresada por el usuario
+     * @param {Number} sueldo Sueldo ingresado por el usuario
+     * @returns Devuelve true sólo en caso de que todos los valores ingresados por el usuario sean válidos, de lo contrario devolverá false
+     */
     static sonDatosValidos = (nombre, apellido, edad, sueldo) => {
         if (!this.esNombreCompleto(nombre, apellido)){   
             return false;
@@ -111,6 +135,13 @@ class ValidacionUsuario{
         return true;
     }
 
+    /**
+     * Verifica que el usuario cumpla con los requisitos necesarios para el préstamo
+     * @param {Number} montoSolicitado Monto que el usuario solicita
+     * @param {Number} montoMinimoPrestamo Monto mínimo aceptado en base al sueldo del usuario
+     * @param {Number} montoMaximoPrestamo Monto mínimo aceptado en base al sueldo del usuario
+     * @returns Devuelve true en caso de que cumpla con los requisitos, de lo contrario devolverá false
+     */
     static verificarRequisitosSueldo = (montoSolicitado, montoMinimoPrestamo, montoMaximoPrestamo) => {
         if (montoSolicitado > montoMinimoPrestamo && montoSolicitado < montoMaximoPrestamo){
             return true;

@@ -1,8 +1,11 @@
 /**
- * Se encarga de regresar a la home mediante un evento
+ * Se encarga de recargar la página actual
  */
 const recargarPagina = () => window.location.reload();
 
+/**
+ * Se encarga de guardar los datos, si es que son válidos y hay campos vacios
+ */
 const guardarDatos = e => {
     e.preventDefault();
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
@@ -32,6 +35,9 @@ const guardarDatos = e => {
     console.table(usuarioEnUso);
 }
 
+/**
+ * Si hay datos previamente cargado, se encarga de mostrarlo mediante los inputs, sino se permite la opción de cargarlos
+ */
 const cargarDatosPersonales = () => {
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     crearModalDatosPersonales();
