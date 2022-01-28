@@ -22,27 +22,44 @@ const solicitarPrestamo = (montoPrestamo, cantidadCuotas) => {
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     const esPrestamoValido = ValidacionOperacion.verificarPrestamoValido(montoPrestamo, cantidadCuotas);
     const poseePrestamoPrevio = usuarioEnUso.prestamoSolicitado;
-    const prestamo = crearPrestamo(montoPrestamo, cantidadCuotas);
-    if (esPrestamoValido){
-        if (poseePrestamoPrevio){
-            Swal.fire({
-                icon: 'error',
-                title: 'Ups...',
-                text: 'Ya has solicitado un préstamo con anterioridad.',
-            })
+    const esMayorDe18 = ValidacionUsuario.esMayorDeEdad(usuarioEnUso.edad);
+    const montoMinimoPrestamo = (usuarioEnUso.sueldo * 35 / 100);
+    const montoMaximoPrestamo = (usuarioEnUso.sueldo * 50 / 100);
+    const montoSolicitado = document.querySelector(`#montoPrestamo`).value; 
+    const cumpleRequisitosSueldo = ValidacionUsuario.verificarRequisitosSueldo(montoSolicitado, montoMinimoPrestamo, montoMaximoPrestamo);
+
+    if (esMayorDe18){
+        if(cumpleRequisitosSueldo){   
+            const prestamo = crearPrestamo(montoPrestamo, cantidadCuotas);
+            if (esPrestamoValido){
+                if (poseePrestamoPrevio){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ups...',
+                        text: 'Ya has solicitado un préstamo con anterioridad.',
+                    })
+                }
+                else{
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: '¡Operación realizada con éxito!',
+                        allowOutsideClick: false,
+                        heightAuto: false,
+                    })
+                    usuarioEnUso.movimientos.unshift(prestamo);
+                    usuarioEnUso.prestamoSolicitado = true;
+                    GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
+                }
+            }
         }
-        else{
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: '¡Operación realizada con éxito!',
-                allowOutsideClick: false,
-                heightAuto: false,
-            })
-            usuarioEnUso.movimientos.unshift(prestamo);
-            usuarioEnUso.prestamoSolicitado = true;
-            GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
-        }
+    }
+    else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Ups...',
+            text: 'Debes ser mayor de edad para poder solicitar un préstamo.',
+        })
     }
 }
 

@@ -12,7 +12,7 @@ const guardarDatos = e => {
     const sueldo = data.get(`sueldo`);
     const arrayNombreCompleto = nombreCompleto.split(' ', 2);
     console.log(arrayNombreCompleto);
-    if (ValidacionOperacion.sonDatosValidos(arrayNombreCompleto[0],arrayNombreCompleto[1], edad, sueldo)){
+    if (ValidacionUsuario.sonDatosValidos(arrayNombreCompleto[0],arrayNombreCompleto[1], edad, sueldo)){
         Swal.fire({
             position: 'center',
             icon: 'success',

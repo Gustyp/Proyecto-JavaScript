@@ -65,6 +65,65 @@ class ValidacionUsuario{
         return true;
     }
 
+    static esEdadValida = edad => {
+        if (edad <= 0 || edad == ``){
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'Has ingresado una edad inválida.',
+            })
+            return false;
+        }
+        return true;
+    }
+
+    static esMayorDeEdad = edad => {
+        if (edad < 18){
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'No eres mayor de 18 años, no puede solicitar nuestra tarjeta.',
+            })
+            return false;
+        }
+        return true;
+    };
+
+    static esNombreCompleto = (nombre, apellido) => {
+        if (nombre == undefined || apellido == undefined){
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'Debes ingresar tu nombre completo.',
+            })
+            return false;
+        }
+        return true;
+    }
+
+    static sonDatosValidos = (nombre, apellido, edad, sueldo) => {
+        if (!this.esNombreCompleto(nombre, apellido)){   
+            return false;
+        }
+        if (!this.esEdadValida(edad) || !ValidacionOperacion.esMontoValido(sueldo)){
+            return false;
+        }
+        return true;
+    }
+
+    static verificarRequisitosSueldo = (montoSolicitado, montoMinimoPrestamo, montoMaximoPrestamo) => {
+        if (montoSolicitado > montoMinimoPrestamo && montoSolicitado < montoMaximoPrestamo){
+            return true;
+        }
+        else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'No cumples con los requisitos mínimos de sueldo.',
+            })
+        }
+    }
+
     /**
      * Se encarga de verificar la longitud de los datos ingresados por el usuario
      * @param {String} nuevoUsuario Nombre de usuario del usuario que está por ser creado

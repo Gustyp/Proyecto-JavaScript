@@ -19,42 +19,6 @@ class ValidacionOperacion{
         return true;
     }
 
-    static esEdadValida = edad => {
-        if (edad <= 0 || edad == ``){
-            Swal.fire({
-                icon: 'error',
-                title: 'Ups...',
-                text: 'Has ingresado una edad inválida.',
-            })
-            return false;
-        }
-        return true;
-    }
-
-    static esMayorDeEdad = edad => {
-        if (edad < 18){
-            Swal.fire({
-                icon: 'error',
-                title: 'Ups...',
-                text: 'No eres mayor de 18 años, no puede solicitar nuestra tarjeta.',
-            })
-            return false;
-        }
-        return true;
-    };
-
-    static esNombreCompleto = (nombre, apellido) => {
-        if (nombre == undefined || apellido == undefined){
-            Swal.fire({
-                icon: 'error',
-                title: 'Ups...',
-                text: 'Debes ingresar tu nombre completo.',
-            })
-            return false;
-        }
-        return true;
-    }
-
     /**
      * Se encarga de verificar que la cantidad de cuotas ingresadas sea válida
      * @param {Number} cuotas Cantidad de cuotas en las que se solicita el préstamo
@@ -110,16 +74,6 @@ class ValidacionOperacion{
         const filterUsuarioEncontrado = arrayUsuarioExistente.filter(e => e);
         const usuarioEncontrado = filterUsuarioEncontrado[0];
         return usuarioEncontrado;
-    }
-
-    static sonDatosValidos = (nombre, apellido, edad, sueldo) => {
-        if (!this.esNombreCompleto(nombre, apellido)){   
-            return false;
-        }
-        if (!this.esEdadValida(edad) || !this.esMontoValido(sueldo)){
-            return false;
-        }
-        return true;
     }
 
     /**

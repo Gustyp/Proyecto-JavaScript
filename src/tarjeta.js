@@ -25,9 +25,8 @@ const cargarDatosDeUsuario = () => {
 const solicitarTarjeta = () => {
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     const edadUsuario = document.querySelector(`#edadUsuario`).value;
-    console.table(usuarioEnUso);
     if (!usuarioEnUso.tarjetaSolicitada){
-        if (ValidacionOperacion.esMayorDeEdad(edadUsuario)){
+        if (ValidacionUsuario.esMayorDeEdad(edadUsuario)){
             Swal.fire({
                 icon: 'success',
                 title: '¡Solicitud enviada!',
@@ -53,7 +52,6 @@ const solicitarTarjeta = () => {
  */
 const iniciar = () => {
     GestionUsuarios.iniciar();
-    // Evento que se encarga de otener los datos del formulario de solicitud de préstamo
     $(`#card`).on('click', girarTarjeta);
     $('#cargarDatos').on('click', cargarDatosDeUsuario);
     $(`#misDatos`).on(`click`, cargarDatosPersonales);
