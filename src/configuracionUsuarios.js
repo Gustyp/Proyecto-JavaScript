@@ -10,8 +10,8 @@ class Usuario{
      * @param {String} cvu Clave virtual uniforme que se le otorga al usuario al crear una cuenta con éxito
      */
     constructor(usuario, email, password, cvu){
-        this.nombre;
-        this.apellido;
+        this.nombre = " ";
+        this.apellido = " ";
         this.edad;
         this.sueldo;
         this.usuario = usuario;
@@ -20,6 +20,7 @@ class Usuario{
         this.saldo = Number(Math.round(Math.random()*99999));
         this.prestamoSolicitado = false;
         this.tarjetaSolicitada = false;
+        this.hayDatosCargados = false;
         this.cvu = cvu;
         this.movimientos = [];
     }

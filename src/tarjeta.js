@@ -1,22 +1,48 @@
 const girarTarjeta = () => {
-  const tarjeta = document.querySelector("#card");
-  tarjeta.classList.toggle(`is-flipped`);
+    const tarjeta = document.querySelector("#card");
+    tarjeta.classList.toggle(`is-flipped`);
 };
 
 const cargarDatosDeUsuario = () => {
-  
+    const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
+    const inputNombreApellido = document.querySelector(`#nombreCompletoUsuario`)
+    const inputEdadUsuario = document.querySelector(`#edadUsuario`);
+    const inputSueldoUsuario = document.querySelector(`#sueldoUsuario`);
+    if (usuarioEnUso.hayDatosCargados){
+        inputNombreApellido.value = `${usuarioEnUso.nombre} ${usuarioEnUso.apellido}`;
+        inputEdadUsuario.value = `${usuarioEnUso.edad}`;
+        inputSueldoUsuario.value = `${usuarioEnUso.sueldo}`;
+    }
+    else{
+        Swal.fire({
+        icon: 'info',
+        title: 'Ups...',
+        text: 'Aún tienes datos sin cargar.',
+        })
+    }
+}
+
+const solicitarTarjeta = () => {
+    const edadUsuario = document.querySelector(`#edadUsuario`).value;
+    if (ValidacionOperacion.esMayorDeEdad(edadUsuario)){
+        Swal.fire({
+          icon: 'success',
+          title: '¡Solicitud enviada!',
+          text: 'Recibirá noticias en un período de 72hs hábiles en su dirección de correo electrónico si ha sido aprobada.',
+          })
+    }
 }
 
 /**
  * Función que se encarga de cargar los datos almacenados en localStorage
  */
- const iniciar = () => {
-  GestionUsuarios.iniciar();
-  // Evento que se encarga de otener los datos del formulario de solicitud de préstamo
-  // $('#creditForm').on('submit', obtenerDatosFormulario); 
-  $('#cargarDatos').on('click', cargarDatosDeUsuario);
-  $(`#card`).on('click', girarTarjeta);
-  $(`#misDatos`).on(`click`, cargarDatosPersonales);
+const iniciar = () => {
+    GestionUsuarios.iniciar();
+    // Evento que se encarga de otener los datos del formulario de solicitud de préstamo
+    $(`#card`).on('click', girarTarjeta);
+    $('#cargarDatos').on('click', cargarDatosDeUsuario);
+    $(`#misDatos`).on(`click`, cargarDatosPersonales);
+    $(`#enviarSolicitud`).on(`click`, solicitarTarjeta);
 }
 
 // Este evento carga la información desde el localStorage

@@ -70,7 +70,7 @@
                                                     <div class="tarjeta__details">
                                                         <div class="tarjeta__holder">
                                                             <span class="tarjeta__holder__title">Nombre y apellido</span>
-                                                            <span class="tarjeta__holder__name">Zara Lynch</span>
+                                                            <span class="tarjeta__holder__name">John Doe</span>
                                                         </div>
                                                         <div class="tarjeta__expiration">
                                                             <span class="tarjeta__expiration__title">Expiración</span>
@@ -114,22 +114,22 @@
                                 <form id="creditForm">
                                     <div class="input-group">
                                         <span class="input-group-text"><ion-icon size="large" name="person-outline"></ion-icon></span>
-                                        <input id="nombreCompletoUsuario" type="number" name="monto" class="form-control" placeholder="Nombre y apellido" disabled>
+                                        <input id="nombreCompletoUsuario" type="text" name="nombreCompleto" class="form-control" placeholder="Nombre y apellido" disabled>
                                         <small class="col-12 mt-1"><p></p></small>
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
-                                        <input id="edadUsuario" type="number" name="cuotas" class="form-control" placeholder="Edad" disabled>
+                                        <input id="edadUsuario" type="number" name="edad" class="form-control" placeholder="Edad" disabled>
                                         <small class="col-12 mt-1"><p></p></small>
                                     </div> 
                                     <div class="input-group">
                                         <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
-                                        <input id="sueldoUsuario" type="number" name="cuotas" class="form-control" placeholder="Sueldo actual" disabled>
+                                        <input id="sueldoUsuario" type="number" name="sueldo" class="form-control" placeholder="Sueldo actual" disabled>
                                         <small class="col-12 mt-1"><p></p></small>
                                     </div> 
                                     <div class="d-flex justify-content-end pt-4 gap-3">
                                         <button id="cargarDatos" type="button" class="btn btn-primary">Cargar datos</button>
-                                        <button type="submit" class="btn btn-primary">Solicitar</button>
+                                        <button type="button" id="enviarSolicitud" class="btn btn-primary">Solicitar</button>
                                     </div>
                                 </form>
                             </div>

@@ -26,19 +26,10 @@ const guardarDatos = e => {
         usuarioEnUso.apellido = arrayNombreCompleto[1];
         usuarioEnUso.edad = edad;
         usuarioEnUso.sueldo = sueldo;
-
+        usuarioEnUso.hayDatosCargados = true;
         GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
     }
     console.table(usuarioEnUso);
-    
-    usuarioEnUso.nombre = arrayNombreCompleto[0];
-    usuarioEnUso.apellido = arrayNombreCompleto[1];
-    usuarioEnUso.edad = edad;
-    usuarioEnUso.sueldo = sueldo;
-    console.log(usuarioEnUso.nombre);
-    GestionUsuarios.guardarUsuario(GestionUsuarios.usuarios);
-    console.log(`edad = ${edad}`);
-    console.log(`sueldo = ${sueldo}`);
 }
 
 const cargarDatosPersonales = () => {
@@ -47,11 +38,11 @@ const cargarDatosPersonales = () => {
     const inputNombreCompleto = document.querySelector(`#nombreCompletoUsuario`);
     const inputEdad = document.querySelector(`#edadUsuario`);
     const inputSueldo = document.querySelector(`#sueldoUsuario`);
-    if (usuarioEnUso.nombre != undefined && usuarioEnUso.apellido != undefined){
+    if (usuarioEnUso.hayDatosCargados){
         inputNombreCompleto.value = `${usuarioEnUso.nombre} ${usuarioEnUso.apellido}`;
+        inputEdad.value = `${usuarioEnUso.edad}`;
+        inputSueldo.value = `${usuarioEnUso.sueldo}`;
     }
-    inputEdad.value = `${usuarioEnUso.edad}`;
-    inputSueldo.value = `${usuarioEnUso.sueldo}`;
     $(`#modalForm`).on(`submit`, guardarDatos);
     $('#volverAlHome').on('click', recargarPagina);
 }

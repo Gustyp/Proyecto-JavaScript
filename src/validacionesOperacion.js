@@ -31,6 +31,18 @@ class ValidacionOperacion{
         return true;
     }
 
+    static esMayorDeEdad = edad => {
+        if (edad < 18){
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'No eres mayor de 18 años, no puede solicitar nuestra tarjeta.',
+            })
+            return false;
+        }
+        return true;
+    };
+
     static esNombreCompleto = (nombre, apellido) => {
         if (nombre == undefined || apellido == undefined){
             Swal.fire({
