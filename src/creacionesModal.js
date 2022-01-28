@@ -80,17 +80,17 @@ const crearModalDatosPersonales = () => {
     document.querySelector(`#modalForm`).innerHTML = `
     <div class="input-group">
         <span class="input-group-text"><ion-icon size="large" name="person-outline"></ion-icon></span>
-        <input id="nombreCompletoUsuario" type="text" name="nombreApellido" class="form-control" placeholder="Nombre y apellido">
+        <input id="nombreGuardado" type="text" name="nombreApellido" class="form-control" placeholder="Nombre y apellido">
         <small class="col-12 mt-1"><p></p></small>
     </div>
     <div class="input-group">
         <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
-        <input id="edadUsuario" type="number" name="edad" class="form-control" placeholder="Edad">
+        <input id="edadGuardada" type="number" name="edad" class="form-control" placeholder="Edad">
         <small class="col-12 mt-1"><p></p></small>
     </div> 
     <div class="input-group">
         <span class="input-group-text"><ion-icon size="large" name="arrow-forward-outline"></ion-icon></span>
-        <input id="sueldoUsuario" type="number" name="sueldo" class="form-control" placeholder="Sueldo actual">
+        <input id="sueldoGuardado" type="number" name="sueldo" class="form-control" placeholder="Sueldo actual">
         <small class="col-12 mt-1"><p></p></small>
     </div> 
     <div class="d-flex justify-content-end pt-4 gap-3">

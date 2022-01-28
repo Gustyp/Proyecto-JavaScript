@@ -62,9 +62,17 @@ const cargarHoraActual = () => {
     ultimaActualizacionReal.innerHTML = `${horaActual}`;
 }
 
-$(() =>{
+/**
+ * Función que se encarga de cargar los datos almacenados en localStorage
+ */
+ const iniciar = () => {
+    GestionUsuarios.iniciar();
     cargarHoraActual();
     cotizacionDolar();
     cotizacionEuro();
     cotizacionReal();
-})
+    $(`#misDatos`).on(`click`, cargarDatosPersonales);
+}
+
+// Este evento carga la información desde el localStorage
+$(() => iniciar());

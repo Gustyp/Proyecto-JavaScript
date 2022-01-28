@@ -35,9 +35,9 @@ const guardarDatos = e => {
 const cargarDatosPersonales = () => {
     const usuarioEnUso = GestionUsuarios.detectarUsuarioActual();
     crearModalDatosPersonales();
-    const inputNombreCompleto = document.querySelector(`#nombreCompletoUsuario`);
-    const inputEdad = document.querySelector(`#edadUsuario`);
-    const inputSueldo = document.querySelector(`#sueldoUsuario`);
+    const inputNombreCompleto = document.querySelector(`#nombreGuardado`);
+    const inputEdad = document.querySelector(`#edadGuardada`);
+    const inputSueldo = document.querySelector(`#sueldoGuardado`);
     if (usuarioEnUso.hayDatosCargados){
         inputNombreCompleto.value = `${usuarioEnUso.nombre} ${usuarioEnUso.apellido}`;
         inputEdad.value = `${usuarioEnUso.edad}`;
