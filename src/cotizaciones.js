@@ -65,7 +65,7 @@ const cargarHoraActual = () => {
 /**
  * Función que se encarga de cargar los datos almacenados en localStorage
  */
- const iniciar = () => {
+const iniciar = () => {
     GestionUsuarios.iniciar();
     cargarHoraActual();
     cotizacionDolar();

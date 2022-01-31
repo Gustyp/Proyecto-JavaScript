@@ -11820,4 +11820,63 @@ footer .nav__icon {
   color: var(--white);
 }
 
+.body-404 {
+  font-family: "montserrat", sans-serif;
+  cursor: pointer;
+}
+.body-404__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #0000;
+}
+.body-404__container h1, .body-404__container .h1 {
+  font-size: 9rem;
+  font-weight: 950;
+  letter-spacing: 1rem;
+  color: #00CC99;
+  animation: float 3s linear infinite;
+}
+.body-404__container h2 img, .body-404__container .h2 img {
+  max-width: 20%;
+}
+.body-404__container p {
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+}
+.body-404__container a {
+  text-decoration: none;
+  background: #fd7e14;
+  color: #ffff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  transition: 0.4s;
+  box-shadow: 0px 4px 15px -5px #000;
+  -webkit-box-shadow: 0px 4px 15px -5px #000;
+}
+.body-404__container a img {
+  margin-right: 1rem;
+}
+.body-404__container a:hover {
+  background: #6600FF;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-40px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
