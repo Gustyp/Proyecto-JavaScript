@@ -1,7 +1,7 @@
 /**
  * Se encarga de obtener los datos de la cotización del dólar oficial y dólar blue
  */
-async function cotizacionDolar() {
+const cotizacionDolar = async () => {
     const response = await fetch(`https://www.dolarsi.com/api/api.php?type=valoresprincipales`)
     const datosDolar = await response.json()
     let dolarBlue = (Object.entries(datosDolar).find(dolarBlueArray => dolarBlueArray[1].casa.nombre == "Dolar Blue"));
@@ -24,7 +24,7 @@ async function cotizacionDolar() {
 /**
  * Se encarga de obtener los datos de la cotización del euro
  */
-async function cotizacionEuro() {
+const cotizacionEuro = async () => {
     const response = await fetch(`https://www.dolarsi.com/api/api.php?type=euro`)
     const datosEuro = await response.json()
     let euro = (Object.entries(datosEuro).find(euroArray => euroArray[1].casa.nombre == "Banco Nación"));
@@ -37,7 +37,7 @@ async function cotizacionEuro() {
 /**
  * Se encarga de obtener los datos de la cotización del real
  */
-async function cotizacionReal() {
+const cotizacionReal = async () => {
     const response = await fetch(`https://www.dolarsi.com/api/api.php?type=real`)
     const datosReal = await response.json()
     let real = (Object.entries(datosReal).find(realArray => realArray[1].casa.nombre == "Banco Nación"));
