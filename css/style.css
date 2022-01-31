@@ -11838,11 +11838,17 @@ footer .nav__icon {
   font-size: 9rem;
   font-weight: 950;
   letter-spacing: 1rem;
-  color: #00CC99;
+  color: #6600FF;
   animation: float 3s linear infinite;
+}
+.body-404__container h2, .body-404__container .h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .body-404__container h2 img, .body-404__container .h2 img {
   max-width: 20%;
+  padding-right: 0.8rem;
 }
 .body-404__container p {
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
