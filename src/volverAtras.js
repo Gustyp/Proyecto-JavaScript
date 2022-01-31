@@ -1,4 +1,4 @@
-const volverPaginaAnterior = () => history.back;
+const volverPaginaAnterior = () => history.back();
 
 const volverAtras = document.querySelector(`#volverAtras`);
 
