@@ -39,7 +39,7 @@
 
         & a {
             text-decoration: none;
-            background: $orange;
+            background: $secondary;
             color: #ffff;
             padding: 1rem 2rem;
             border: none;
@@ -47,8 +47,8 @@
             font-size: .8rem;
             text-transform: uppercase;
             transition: 0.4s;
-            box-shadow: 0px 4px 15px -5px $black;
-            -webkit-box-shadow: 0px 4px 15px -5px $black;
+            box-shadow: 0px 4px 15px -5px #000300;
+            -webkit-box-shadow: 0px 4px 15px -5px #000300;
     
             & img {
                 margin-right: 1rem;
