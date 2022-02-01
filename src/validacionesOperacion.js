@@ -87,7 +87,9 @@ class ValidacionOperacion{
         const usuarioExistente = this.existeUsuario(destinatario);
         const montoAceptado = this.esMontoValido(dineroTransferencia);
         if (usuarioExistente && montoAceptado){
-            if (GestionUsuarios.usuarioActual == usuarioExistente){
+            console.log(GestionUsuarios.usuarioActual);
+            console.log(usuarioExistente);
+            if (GestionUsuarios.usuarioActual == usuarioExistente.usuario){
                 Swal.fire({
                     title: '¿Estás bien?',
                     text: "¡Es imposible enviarte una transferencia a ti mismo!",
